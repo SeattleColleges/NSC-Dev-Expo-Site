@@ -1,6 +1,10 @@
 import { View, Pressable, StyleSheet } from 'react-native';
 
-export default function HamburgerButton({ onPress }) {
+type Props = {
+  onPress: () => void;
+};
+
+export default function HamburgerButton({ onPress }: Props) {
   return (
     <Pressable onPress={onPress} style={styles.button}>
       <View style={styles.line} />
