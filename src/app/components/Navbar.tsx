@@ -6,6 +6,12 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const [aboutOpen, setAboutOpen] = useState(false);
+    const [contactOpen, setContactOpen] = useState(false);
+    const [peopleOpen, setPeopleOpen] = useState(false);
+    const [projectsOpen, setProjectsOpen] = useState(false);
+
     return(
         <>
             <View style={styles.container}>
@@ -19,10 +25,20 @@ export default function Navbar() {
 
             {menuOpen && (
                 <View style={styles.dropdown}>
-                    <View style={styles.dropdownCategory}>
-                        <Text style={styles.dropdownText}>About</Text>
-                        <MaterialIcons name="keyboard-arrow-up" size={56} color="black" />
-                    </View>
+                    <Pressable onPress={() => setAboutOpen(!aboutOpen)}>
+                        <View style={styles.dropdownCategory}>
+                            <Text style={styles.dropdownText}>About</Text>
+                            <MaterialIcons name={aboutOpen ? "keyboard-arrow-up" : "keyboard-arrow-down"} size={56} color="black" />
+                        </View>
+                    </Pressable>
+
+                    {aboutOpen && (
+                        <View style={styles.subMenu}>
+                            <Text>About Us</Text>
+                            <Text>Our Design Process</Text>
+                            <Text>North Seattle College</Text>
+                        </View>
+                    )}
                     <View style={styles.dropdownCategory}>
                         <Text style={styles.dropdownText}>Contact</Text>
                         <MaterialIcons name="keyboard-arrow-up" size={56} color="black" />
@@ -81,5 +97,11 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         justifyContent: "flex-end",
         gap: 4
+    },
+    subMenu: {
+        backgroundColor: "#B3B3B3",
+        alignItems: "flex-end",
+        fontSize: 48,
+
     }
 });
