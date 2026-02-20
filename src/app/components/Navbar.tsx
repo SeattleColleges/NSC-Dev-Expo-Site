@@ -8,7 +8,9 @@ export default function Navbar() {
     return(
         <>
             <View style={styles.container}>
-                <Text style={styles.logo}>LOGO</Text>
+                <View style={styles.logoBox}>
+                    <Text style={styles.logo}>LOGO</Text>
+                </View>
                 <HamburgerButton 
                     onPress={() => setMenuOpen(!menuOpen)}
                 />
@@ -17,9 +19,10 @@ export default function Navbar() {
             {menuOpen && (
                 <View style={styles.dropdown}>
                     <Text>Home</Text>
-                    <Text>About</Text>
                     <Text>Contact</Text>
-                    <Text>Student</Text>
+                    <Text>People</Text>
+                    <Text>Projects</Text>
+                    <Text>Donate</Text>
                 </View>
             )}
         </>
@@ -27,22 +30,25 @@ export default function Navbar() {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    height: 60,
-    paddingHorizontal: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  logo: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  dropdown: {
-    backgroundColor: '#fff',
-    padding: 20,
-    borderBottomWidth: 1,
-    borderColor: '#eee',
+    container: {
+        height: 60,
+        paddingHorizontal: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    logoBox: {
+        backgroundColor: "#525252",
+    },
+    logo: {
+        color:"#fff",
+        fontSize: 18,
+    },
+    dropdown: {
+        backgroundColor: '#fff',
+        padding: 20,
+        borderBottomWidth: 1,
+        borderColor: '#eee',
     },
 });
