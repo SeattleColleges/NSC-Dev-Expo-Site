@@ -1,5 +1,6 @@
 import { View, Pressable, StyleSheet } from 'react-native';
 import { GestureResponderEvent } from  "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 type Props = {
   onPress: (event: GestureResponderEvent) => void;
@@ -8,9 +9,7 @@ type Props = {
 export default function HamburgerButton({ onPress }: Props) {
   return (
     <Pressable onPress={onPress} style={styles.button}>
-      <View style={styles.line} />
-      <View style={styles.line} />
-      <View style={styles.line} />
+      <MaterialIcons name="menu" size={24} color="black" />
     </Pressable>
   );
 }
@@ -19,11 +18,5 @@ const styles = StyleSheet.create({
   button: {
     padding: 8,
     justifyContent: 'center',
-  },
-  line: {
-    width: 24,
-    height: 2,
-    backgroundColor: '#000',
-    marginVertical: 3,
-  },
+  }
 });
