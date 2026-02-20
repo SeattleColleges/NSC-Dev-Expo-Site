@@ -1,7 +1,8 @@
 import { View, Pressable, StyleSheet } from 'react-native';
+import { GestureResponderEvent } from  "react-native";
 
 type Props = {
-  onPress: () => void;
+  onPress: (event: GestureResponderEvent) => void;
 };
 
 export default function HamburgerButton({ onPress }: Props) {
