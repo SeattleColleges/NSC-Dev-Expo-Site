@@ -1,7 +1,7 @@
-import { View, Text,StyleSheet } from 'react-native';
+import { View, Text ,StyleSheet } from 'react-native';
 import PortfolioStats from '../../../components/PortfolioStats';
-import { View,  } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+
+
 export default function TestPage() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -11,7 +11,6 @@ export default function TestPage() {
         students="200"
         hours="5000"
       />
-
     </View>
   );
 }

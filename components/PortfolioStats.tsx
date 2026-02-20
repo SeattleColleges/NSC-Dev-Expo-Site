@@ -1,4 +1,5 @@
 import {View , Text, StyleSheet, Dimensions} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
 const isMobile = width < 600; // Mobile Scaling breakpoint
@@ -21,28 +22,28 @@ const StatItem = ({ value, label }: { value: string; label: string }) => {
 };
 // child component for each stat item
 
-
 export default function PortfolioStats({ completed, ongoing, students, hours }: StatItemProperty) {
     return (
-        <View style={style.mainWrapper}>
-      <View style={style.grid}>
-        <StatItem value={completed} label="Projects completed" />
-        <StatItem value={ongoing} label="Ongoing projects" />
-        <StatItem value={students} label="Students Involved" />
-        <StatItem value={hours} label="Development Hours" />
-      </View>
-    </View>
+        <LinearGradient
+        // Dark color (1A1A1A) to Light color (D9D9D9)
+        colors={['#1A1A1A', '#d9d9d9b9']}
+        start={{ x: 0, y: 0.5 }} 
+        end={{ x: 1, y: 0.5 }}
+        style={style.mainWrapper}>
+        <View style={style.grid}>
+            <StatItem value={completed} label="Projects completed" />
+            <StatItem value={students} label="Students Involved" />
+            <StatItem value={ongoing} label="Ongoing projects" />
+            <StatItem value={hours} label="Development Hours" />
+        </View>
+    </LinearGradient>
     );
 };
-
-
-
-
 
 const style = StyleSheet.create({
     mainWrapper: {
         width: '100%',
-        backgroundColor: '#121212',
+        backgroundColor: '#1a1a1a',
         paddingVertical: 48, // 6x8
     },
     grid: {
