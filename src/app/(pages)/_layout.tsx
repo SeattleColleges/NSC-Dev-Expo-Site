@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 import { View } from "react-native";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 
 export default function AppLayout() {
   return (
