@@ -1,11 +1,9 @@
 import { View, Text } from 'react-native';
-import Hello from '../../components/Hello';
 
-export default function HomePage() {
+export default function Hello() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to the Home Page!</Text>
-      <Hello/>
+      <Text>Hello from the helloFunc component file!</Text>
     </View>
   );
 }
