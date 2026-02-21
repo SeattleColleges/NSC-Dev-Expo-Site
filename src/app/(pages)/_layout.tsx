@@ -27,6 +27,12 @@ export default function AppLayout() {
           title: 'Student',
         }}
       />
+      <Stack.Screen
+        name="facultyandstaff"
+        options={{
+          title: 'Faculty and Staff',
+        }}
+      />
     </Stack>
   );
 }
