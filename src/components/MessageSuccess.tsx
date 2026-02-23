@@ -12,7 +12,7 @@ export default function MessageSuccess() {
                 style={styles.hero}
                 >
                     <Text style={styles.h1}>
-                        Your submission was successful
+                        Your submission was successful!
                     </Text>
                     <Text style={styles.h2}>
                         We here look forwards towards working with you!
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
         fontSize: 48,
         fontWeight: 'bold',
         marginLeft: '10%',
-        marginRight: '20%'
+        marginRight: '20%',
+        marginBottom: '5%',
     },
     h2: {
         color: 'white',

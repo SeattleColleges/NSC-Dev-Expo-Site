@@ -7,7 +7,6 @@ export default function HomePage() {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Welcome to the Home Page!</Text>
       <Hello/>
-      <MessageSuccess></MessageSuccess>
     </View>
   );
 }
