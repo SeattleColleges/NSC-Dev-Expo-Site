@@ -15,6 +15,7 @@ function ProfessionSection() {
     );
 }
 
+export default ProfessionSection;
 
 
 
