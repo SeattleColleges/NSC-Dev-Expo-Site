@@ -1,5 +1,10 @@
-node_modules
-.DS_Store
-
+# Expo
 .expo/
-.expo/*
+.expo-shared/
+
+# Node
+node_modules/
+
+# Build output
+dist/
+web-build/
