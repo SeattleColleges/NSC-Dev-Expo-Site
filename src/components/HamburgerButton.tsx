@@ -2,11 +2,11 @@ import { Pressable, StyleSheet } from 'react-native';
 import { GestureResponderEvent } from  "react-native";
 import { Feather } from "@expo/vector-icons";
 
-type Props = {
+interface HamburgerButtonProps {
   onPress: (event: GestureResponderEvent) => void;
 };
 
-export default function HamburgerButton({ onPress }: Props) {
+export default function HamburgerButton({ onPress }: HamburgerButtonProps) {
   return (
     <Pressable onPress={onPress} style={styles.button}>
       <Feather name="menu" size={62} color="black" />
