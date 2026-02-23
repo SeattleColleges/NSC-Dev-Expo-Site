@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 const screenWidth = Dimensions.get('window').width;
+const isMobile = screenWidth < 768;
 
 export default function ContactUsBanner() {
   return (
@@ -45,61 +46,63 @@ const styles = StyleSheet.create({
   },
   topBanner: {
     backgroundColor: '#1a1a1a',
-    paddingVertical: 24,
-    paddingHorizontal: 20,
+    paddingVertical: isMobile ? 24 : 40,
+    paddingHorizontal: isMobile ? 20 : 48,
     alignItems: 'flex-start',
   },
   mainHeading: {
     color: '#ffffff',
-    fontSize: 20,
+    fontSize: isMobile ? 20 : 28,
     fontWeight: 'bold',
     textAlign: 'left',
     marginBottom: 6,
   },
   subHeading: {
     color: '#aaaaaa',
-    fontSize: 14,
+    fontSize: isMobile ? 14 : 18,
     textAlign: 'left',
   },
   statsGrid: {
     backgroundColor: '#f0f0f0',
     padding: 8,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: isMobile ? 'space-between' : 'center',
+    gap: isMobile ? 0 : 16,
   },
   statBox: {
-    width: '31%',
+    width: isMobile ? '31%' : '15%',
     backgroundColor: '#e0e0e0',
-    padding: 10,
+    padding: isMobile ? 10 : 24,
     alignItems: 'center',
     borderRadius: 2,
     justifyContent: 'center',
   },
   statNumber: {
-    fontSize: 24,
+    fontSize: isMobile ? 24 : 36,
     fontWeight: 'bold',
     color: '#1a1a1a',
   },
   statDescription: {
-    fontSize: 10,
+    fontSize: isMobile ? 10 : 14,
     textAlign: 'center',
     color: '#555555',
     marginTop: 4,
   },
   bottomSection: {
-    padding: 20,
+    padding: isMobile ? 20 : 40,
+    paddingHorizontal: isMobile ? 20 : 48,
     alignItems: 'flex-start',
     backgroundColor: '#fff',
   },
   bottomHeading: {
-    fontSize: 22,
+    fontSize: isMobile ? 22 : 32,
     fontWeight: 'bold',
     textAlign: 'left',
     color: '#1a1a1a',
     marginBottom: 6,
   },
   bottomSubHeading: {
-    fontSize: 13,
+    fontSize: isMobile ? 13 : 16,
     color: '#666666',
     textAlign: 'left',
   },
