@@ -55,7 +55,6 @@ const style = StyleSheet.create({
         maxWidth: 1200, // max width for larger screens
     },
     itemContainer: {
-        flex:1,
         width: isMobile ? '50%' : '25%', // 2x2 for mobile, 1x4 for desktop
         alignItems: 'center',
         marginVertical: 16, 
