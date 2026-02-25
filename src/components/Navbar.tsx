@@ -132,11 +132,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderTopColor: "#B3B3B3",
         borderTopWidth: 10,
-        fontFamily: 'Roboto'
     },
     dropdownText: {
         fontSize: 48,
-        fontWeight: 500,
+        fontWeight: "500",
         color: "#DDD",
         // fontFamily: 'Roboto'
     },
@@ -146,7 +145,7 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         justifyContent: "flex-end",
         gap: 4,
-        paddingInline: 20
+        paddingHorizontal: 20
     },
     subMenu: {
         backgroundColor: "#B3B3B3",
