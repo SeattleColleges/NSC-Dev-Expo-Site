@@ -20,6 +20,7 @@ export default function Hero() {
                 </View>
             </LinearGradient>
             <HeroCTAButton 
+                accessibilityRole="button"
                 label="Join Us"
                 onPress={showAlert}
                 style={styles.floatingButton} />
@@ -30,38 +31,30 @@ export default function Hero() {
 const styles = StyleSheet.create({
     hero: {
         backgroundColor: "white",
-        paddingTop: 36,
-        paddingVertical: 24,
-    //---> place-holder styling for hifi version: 
-        // position: 'relative',
-        // marginBottom: 40,
+        paddingTop: 60,
+        // paddingVertical: 24,
+
     },
     textContainer: {
         paddingLeft: 24,
         paddingVertical: 24,
-        gap: 24
     },
     headingText: {
         fontSize: 36,
         color: "#E5E5E5",
         // fontFamily: "Roboto"
-        fontWeight: "600"
+        fontWeight: "600",
+        paddingBottom: 36
     },
     subHeadingText: {
         fontSize: 16,
         color: "#E5E5E5",
         // fontFamily: "Inter"
     },
-    heroButton: {
-        width: 16
-    },
     gradientBackground: {
 
     },
-    //---> place-holder styling for hifi version: 
     floatingButton: {
-        // position: 'absolute',
-        // bottom: -20,
-        // left: 24,
+        margin: 24
     },
 });

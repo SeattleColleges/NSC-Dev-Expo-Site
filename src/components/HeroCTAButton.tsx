@@ -3,22 +3,20 @@ import { Pressable, Text, StyleSheet, GestureResponderEvent, PressableProps, Sty
 interface HeroCTAButtonProps extends PressableProps {
     label: string;
     style?: StyleProp<ViewStyle>;
-    onPress: (event: GestureResponderEvent) => void;
 };
 
-export default function HeroCTAButton(
-    { 
+export default function HeroCTAButton({ 
         label,
-        onPress,
         style,
+        ...rest
     }: HeroCTAButtonProps) {
   return (
     <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.button,
-        pressed && styles.pressed,
-        style, //external style applied last
+        {...rest}
+        style={({ pressed }) => [
+            styles.button,
+            pressed && styles.pressed,
+            style, //external style applied last
       ]}
     >
       <Text style={styles.text}>{label}</Text>
@@ -28,7 +26,7 @@ export default function HeroCTAButton(
 
 const styles = StyleSheet.create({
   button: {
-    margin: 24,
+    // margin: 24,
     backgroundColor: '#323232',
     padding: 8,
     alignSelf: "flex-start"
