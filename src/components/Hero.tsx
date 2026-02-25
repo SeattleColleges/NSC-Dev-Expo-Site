@@ -5,6 +5,7 @@ import HeroCTAButton from "./HeroCTAButton";
 function showAlert(){
     console.log("This is the 'Join Us' button");
 };
+
 export default function Hero() {
     return(
         <View style={styles.hero}>
