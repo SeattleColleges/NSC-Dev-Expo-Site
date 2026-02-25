@@ -1,6 +1,5 @@
 import { View, Text } from 'react-native';
 import Hello from '../../components/Hello';
-import MessageSuccess from 'src/components/MessageSuccess';
 
 export default function HomePage() {
   return (
