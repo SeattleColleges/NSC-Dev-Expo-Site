@@ -1,0 +1,92 @@
+.alumni-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-top: 24px;
+}
+
+.alumni-top {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.alumni-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.profile-square {
+  width: 150px;
+  height: 150px;
+  background: #e5e5e5;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.company-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.company-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  
+}
+
+.company-placeholder {
+  width: 28px;
+  height: 28px;
+  background: #e5e5e5;
+  border-radius: 6px;
+}
+
+.alumni-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alumni-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.alumni-role {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+.alumni-quote {
+  margin-top: 40px;
+  line-height: 1.4;
+  color: #444;
+  text-align: left;
+}
+
+.alumni-grid {
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;      /* centers cards horizontally */
+  justify-content: center;  /* centers vertically if grid has height */
+  
+}
