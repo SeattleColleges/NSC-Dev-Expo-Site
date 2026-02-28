@@ -5,13 +5,13 @@ import { router } from "expo-router";
 
 type Props = {
   imageSrc: ImageSourcePropType; // <-- RN uses this type, not string
-  imageAlt?: string; // RN doesn't use alt, but we can keep it
+  imageAlt?: string; 
   name: string;
   position?: string;
   body?: string | React.ReactNode;
   phone?: string;
   email?: string;
-  linkHref?: string; // can be a route or a URL
+  linkHref?: string; 
   linkText?: string;
 };
 
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 12,
     backgroundColor: "white",
+    marginBottom: 16,
     //width: "100%",
   },
   image: {

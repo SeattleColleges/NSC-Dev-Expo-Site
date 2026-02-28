@@ -74,13 +74,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5f5",
   },
   content: {
-    paddingHorizontal: 16,
     paddingBottom: 40,
-    alignItems: "center", // 👈 THIS centers children
   },
   banner: {
+    marginTop: 16,
     width: "100%",
-    height: 140,
+    height: 48,
     backgroundColor: "#1D3D47",
     justifyContent: "center",
     alignItems: "center",
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
   },
   
   sectionWrapper: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 56,
     paddingTop: 24,
   },
 
