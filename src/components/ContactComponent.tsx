@@ -42,12 +42,14 @@ const ContactComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
     backgroundColor: '#fff',
     paddingBottom: 40,
+    width: 498,
+    maxWidth:500,
   },
   mapContainer: {
     width: '90%',
+    maxHeight:376,
     aspectRatio: 1.3, // Keeps the map box responsive
     backgroundColor: '#D9D9D9',
     alignSelf: 'center',
@@ -60,17 +62,18 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   infoContainer: {
-    paddingHorizontal: '10%', // Responsive padding
-    marginTop: 30,
+  paddingHorizontal: '5%', 
+  marginTop: 30,
+  width: '100%', 
   },
   boldText: {
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 24,
     color: '#000',
     marginBottom: 2,
   },
   text: {
-    fontSize: 16,
+    fontSize: 24,
     color: '#333',
     lineHeight: 22,
   },
