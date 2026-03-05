@@ -9,6 +9,7 @@ type FacultyCardProps = {
   email: string;
   imageUrl: string;
   profileLink: string;
+  profileLinkLabel: string;
 };
 
 export default function FacultyCard({
@@ -19,6 +20,7 @@ export default function FacultyCard({
   email,
   imageUrl,
   profileLink,
+  profileLinkLabel,
 }: FacultyCardProps) {
   return (
     <View style={styles.card}>
@@ -30,7 +32,7 @@ export default function FacultyCard({
         <Text style={styles.contact}>{phone}</Text>
         <Text style={styles.contact}>{email}</Text>
         <Link href={profileLink}>
-          <Text style={styles.link}>Faculty Profile {'>'}</Text>
+          <Text style={styles.link}>{profileLinkLabel} {'>'}</Text>
         </Link>
       </View>
     </View>

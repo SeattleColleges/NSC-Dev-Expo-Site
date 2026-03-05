@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Link } from 'expo-router';
 import FacultyCard from '../../components/FacultyCard';
+import Footer from '../../components/Footer';
 
 const facultyData = [
   {
@@ -44,6 +45,28 @@ const facultyData = [
     profileLink: 'https://seattlecolleges.edu',
   },
 ];
+const staffData = [
+  {
+    id: '1',
+    name: 'BC KO',
+    department: 'Staff Member',
+    description: 'Staff member of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placekitten.com/204/204',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+  {
+    id: '2',
+    name: 'BC KO',
+    department: 'Staff Member',
+    description: 'Staff member of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placekitten.com/205/205',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+];
 
 export default function FacultyPage() {
   return (
@@ -61,11 +84,30 @@ export default function FacultyPage() {
             email={faculty.email}
             imageUrl={faculty.imageUrl}
             profileLink={faculty.profileLink}
+            profileLinkLabel="Faculty Profile"
           />
         ))}
         <Link href="https://seattlecolleges.edu">
           <Text style={styles.seeAll}>See All Faculty {'>'}</Text>
         </Link>
+        <Text style={styles.heading}>Staff</Text>
+        {staffData.map((staff) => (
+          <FacultyCard
+            key={staff.id}
+            name={staff.name}
+            department={staff.department}
+            description={staff.description}
+            phone={staff.phone}
+            email={staff.email}
+            imageUrl={staff.imageUrl}
+            profileLink={staff.profileLink}
+            profileLinkLabel="Staff Profile"
+          />
+        ))}
+        <Link href="https://seattlecolleges.edu">
+          <Text style={styles.seeAll}>See All Staff {'>'}</Text>
+        </Link>
+        <Footer />
       </View>
     </ScrollView>
   );
