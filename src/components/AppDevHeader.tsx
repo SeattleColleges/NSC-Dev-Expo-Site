@@ -1,101 +1,98 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function AppDevHeader() {
   return (
-    <View style={styles.container}>
+    <View style={styles.outerContainer}>
       {/* Tagline */}
       <Text style={styles.tagline}>
         Want to learn on demand IT industry skills?
       </Text>
 
-      {/* Program Info */}
-      <View style={styles.programBlock}>
+      {/* Gradient Header Block */}
+      <LinearGradient
+        colors={["#1a1a1a", "#666666"]}
+        style={styles.headerBlock}
+      >
         <Text style={styles.school}>North Seattle College</Text>
         <Text style={styles.program}>Application Development</Text>
-        <Text style={styles.degree}>Bachelor of Applied Science Degree (BAS)</Text>
-      </View>
+        <Text style={styles.degree}>
+          Bachelor of Applied Science{"\n"}Degree (BAS)
+        </Text>
 
-      {/* Buttons */}
-      <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.Button}>
-          <Text style={styles.applyText}>Apply</Text>
-        </TouchableOpacity>
+        {/* Buttons */}
+        <View style={styles.buttonRow}>
+          <TouchableOpacity style={styles.applyButton}>
+            <Text style={styles.buttonText}>Apply</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.Button}>
-          <Text style={styles.infoText}>Request Info</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity style={styles.infoButton}>
+            <Text style={styles.buttonText}>Request Info</Text>
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
     </View>
   );
 }
 
-// Styles for the AppDevHeader component
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 24,
-    paddingVertical: 32,
-    gap: 24,
+  outerContainer: {
+    backgroundColor: "#fff",
   },
 
   tagline: {
-    fontSize: 20,
-    fontWeight: "600",
-    textAlign: "center",
+    fontSize: 18,
+    fontWeight: "700",
+    padding: 20,
+    textAlign: "left",
   },
 
-  programBlock: {
-    alignItems: "center",
-    gap: 4,
+  headerBlock: {
+    padding: 24,
+    alignItems: "flex-start",
+    width: "100%",
   },
 
   school: {
-    fontSize: 16,
+    color: "#ccc",
+    fontSize: 18,
     fontWeight: "500",
   },
 
   program: {
-    fontSize: 22,
-    fontWeight: "700",
+    color: "#fff",
+    fontSize: 32,
+    fontWeight: "800",
+    marginVertical: 8,
   },
 
   degree: {
-    fontSize: 14,
-    fontWeight: "400",
-    color: "#555",
-    textAlign: "center",
+    color: "#fff",
+    fontSize: 18,
+    marginBottom: 20,
   },
 
   buttonRow: {
     flexDirection: "row",
-    justifyContent: "center",
-    gap: 12,
-    marginTop: 12,
+    gap: 10,
   },
 
-  Button: {
-    backgroundColor: "#1E40AF", 
+  applyButton: {
+    backgroundColor: "#444",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 6,
-  },
-
-  applyText: {
-    color: "#ffffff",
-    fontWeight: "600",
-    paddingHorizontal: 16,
   },
 
   infoButton: {
-    backgroundColor: "#ffffff",
-    borderWidth: 1,
-    borderColor: "#1E40AF",
+    backgroundColor: "rgba(255,255,255,0.2)",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 6,
   },
 
-  infoText: {
-    color: "#ffffff",
+  buttonText: {
+    color: "#fff",
     fontWeight: "600",
   },
 });
