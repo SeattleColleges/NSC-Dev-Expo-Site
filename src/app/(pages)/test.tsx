@@ -1,31 +1,18 @@
-import { View, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { ScrollView } from 'react-native';
+import TalentSection from '../components/TalentSection';
 
 export default function TestPage() {
-  return (
-    <View style={styles.container}>
-      <LinearGradient
-        // Colors for the gradient
-        colors={['#4c669f', '#3b5998', '#192f6a']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.gradient}
-    >
-      </LinearGradient>
-    </View>
-  );
-}
+    const myTestData = [
+        { name: "Bob Smith", role: "Tech Lead" },
+        { name: "Ed Boi", role: "Design Lead" },
+        { name: "Leila Natter", role: "Back End Engineer" },
+        { name: "Jimmy Marter", role: "Project Manager" }
+    ];
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-    },
-    gradient: {
-        width: '80%', // Adjust size as needed
-        height: 200,
-        borderRadius: 15,
-    }
-});
+    return (
+        <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
+            <TalentSection students={myTestData} title="Reviewer's Test View" />
+        </ScrollView>
+    );
+}
