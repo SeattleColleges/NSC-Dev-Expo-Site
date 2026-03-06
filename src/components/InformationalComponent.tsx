@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 export default function InformationalComponent() {
 
    return (
+      <ScrollView>
 
       <View style={styles.container}>
 
@@ -62,7 +63,7 @@ export default function InformationalComponent() {
          </View>
 
       </View>
-
+      </ScrollView>
    );
 
 }
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
       paddingVertical: 30,
       backgroundColor: "white",
       width: 390,
+      alignSelf: "center",
 
    },
 
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
 
 
    techItem: {
-      width: "48%",
+      width: "30%",
       alignItems: "center",
       marginBottom: 30,
 
@@ -157,7 +159,8 @@ const styles = StyleSheet.create({
    },
 
    tech: {
-      width: "30%",
+      
+     
       marginBottom: 15,
       textAlign: "center",
 
