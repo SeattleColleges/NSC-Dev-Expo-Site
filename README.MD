@@ -21,4 +21,39 @@ Note: Review the video linked in the resource section to gain understanding how 
 - [CSS Reference](https://css-tricks.com/)
 - [Expo Router](https://docs.expo.dev/versions/latest/sdk/router/)
 
+Placeholder Images for Development
+
+During development, some components may require images that are not yet available.
+To maintain consistent layouts and avoid broken UI components, developers should use placeholder image services.
+
+Recommended Placeholder Services
+
+The following services are recommended for generating temporary images:
+
+PlaceDog
+https://placedog.net/
+
+Example usage:
+
+https://placedog.net/400/300
+
+This generates a placeholder dog image with a width of 400px and height of 300px.
+
+PlaceCats
+https://www.placecats.com/
+
+Example usage:
+
+https://www.placecats.com/400/300
+
+This generates a placeholder cat image with a width of 400px and height of 300px.
+
+Example Implementation
+
+Example usage inside a component:
+
+<img src="https://placedog.net/400/300" alt="Placeholder image" />
+
+These placeholder images should be replaced with actual images before final production deployment.
+
 This is a living document, so please feel free to add any useful tips or workflows
