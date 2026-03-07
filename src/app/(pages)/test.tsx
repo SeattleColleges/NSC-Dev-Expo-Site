@@ -1,31 +1,22 @@
-import { View, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { SafeAreaView, ScrollView } from 'react-native';
+import FacultySection from '../../components/FacultySection';
 
 export default function TestPage() {
-  return (
-    <View style={styles.container}>
-      <LinearGradient
-        // Colors for the gradient
-        colors={['#4c669f', '#3b5998', '#192f6a']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.gradient}
-    >
-      </LinearGradient>
-    </View>
-  );
-}
+    const facultyData = [
+        {
+            name: "BC KO",
+            role: "Department Head",
+            department: "Application Development",
+            phone: "206-555-0101",
+            email: "bcko@seattlecolleges.edu"
+        }
+    ];
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-    },
-    gradient: {
-        width: '80%', // Adjust size as needed
-        height: 200,
-        borderRadius: 15,
-    }
-});
+    return (
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+            <ScrollView>
+                 <FacultySection title="Faculty" members={facultyData} />
+            </ScrollView>
+        </SafeAreaView>
+    );
+}
