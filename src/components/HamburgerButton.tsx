@@ -1,5 +1,4 @@
-import { Pressable, StyleSheet } from 'react-native';
-import { GestureResponderEvent } from  "react-native";
+import { Pressable, StyleSheet, GestureResponderEvent } from 'react-native';
 import { Feather } from "@expo/vector-icons";
 
 interface HamburgerButtonProps {

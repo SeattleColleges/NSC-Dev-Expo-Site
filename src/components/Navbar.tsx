@@ -159,11 +159,12 @@ const styles = StyleSheet.create({
     color: "#DDD",
   },
   dropdownCategory: {
+    display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
     justifyContent: "flex-end",
     gap: 4,
-    paddingInline: 20,
+    paddingHorizontal: 20,
   },
   subMenu: {
     backgroundColor: "#B3B3B3",
