@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Link } from 'expo-router';
 import FacultyCard from '../../components/FacultyCard';
-import Footer from '../../components/Footer';
 
 const facultyData = [
   {
@@ -11,7 +10,7 @@ const facultyData = [
     description: 'Department head of the Application development department',
     phone: '206-555-5555',
     email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placekitten.com/200/200',
+    imageUrl: 'https://placecats.com/200/200',
     profileLink: 'https://seattlecolleges.edu',
   },
   {
@@ -21,7 +20,7 @@ const facultyData = [
     description: 'Department head of the Application development department',
     phone: '206-555-5555',
     email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placekitten.com/201/201',
+    imageUrl: 'https://placecats.com/200/200',
     profileLink: 'https://seattlecolleges.edu',
   },
   {
@@ -31,7 +30,7 @@ const facultyData = [
     description: 'Department head of the Application development department',
     phone: '206-555-5555',
     email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placekitten.com/202/202',
+    imageUrl: 'https://placecats.com/200/200',
     profileLink: 'https://seattlecolleges.edu',
   },
   {
@@ -41,10 +40,11 @@ const facultyData = [
     description: 'Department head of the Application development department',
     phone: '206-555-5555',
     email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placekitten.com/203/203',
+    imageUrl: 'https://placecats.com/200/200',
     profileLink: 'https://seattlecolleges.edu',
   },
 ];
+
 const staffData = [
   {
     id: '1',
@@ -53,7 +53,7 @@ const staffData = [
     description: 'Staff member of the Application development department',
     phone: '206-555-5555',
     email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placekitten.com/204/204',
+    imageUrl: 'https://placecats.com/200/200',
     profileLink: 'https://seattlecolleges.edu',
   },
   {
@@ -63,7 +63,7 @@ const staffData = [
     description: 'Staff member of the Application development department',
     phone: '206-555-5555',
     email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placekitten.com/205/205',
+    imageUrl: 'https://placecats.com/200/200',
     profileLink: 'https://seattlecolleges.edu',
   },
 ];
@@ -73,41 +73,46 @@ export default function FacultyPage() {
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.banner}>The people in charge</Text>
+
         <Text style={styles.heading}>Faculty</Text>
-        {facultyData.map((faculty) => (
-          <FacultyCard
-            key={faculty.id}
-            name={faculty.name}
-            department={faculty.department}
-            description={faculty.description}
-            phone={faculty.phone}
-            email={faculty.email}
-            imageUrl={faculty.imageUrl}
-            profileLink={faculty.profileLink}
-            profileLinkLabel="Faculty Profile"
-          />
-        ))}
+        <View style={styles.gridWrapper}>
+          {facultyData.map((faculty) => (
+            <FacultyCard
+              key={faculty.id}
+              name={faculty.name}
+              department={faculty.department}
+              description={faculty.description}
+              phone={faculty.phone}
+              email={faculty.email}
+              imageUrl={faculty.imageUrl}
+              profileLink={faculty.profileLink}
+              profileLinkLabel="Faculty Profile"
+            />
+          ))}
+        </View>
         <Link href="https://seattlecolleges.edu">
           <Text style={styles.seeAll}>See All Faculty {'>'}</Text>
         </Link>
+
         <Text style={styles.heading}>Staff</Text>
-        {staffData.map((staff) => (
-          <FacultyCard
-            key={staff.id}
-            name={staff.name}
-            department={staff.department}
-            description={staff.description}
-            phone={staff.phone}
-            email={staff.email}
-            imageUrl={staff.imageUrl}
-            profileLink={staff.profileLink}
-            profileLinkLabel="Staff Profile"
-          />
-        ))}
+        <View style={styles.gridWrapper}>
+          {staffData.map((staff) => (
+            <FacultyCard
+              key={staff.id}
+              name={staff.name}
+              department={staff.department}
+              description={staff.description}
+              phone={staff.phone}
+              email={staff.email}
+              imageUrl={staff.imageUrl}
+              profileLink={staff.profileLink}
+              profileLinkLabel="Staff Profile"
+            />
+          ))}
+        </View>
         <Link href="https://seattlecolleges.edu">
           <Text style={styles.seeAll}>See All Staff {'>'}</Text>
         </Link>
-        <Footer />
       </View>
     </ScrollView>
   );
@@ -131,10 +136,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 12,
   },
+gridWrapper: {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+  paddingHorizontal: 8,
+  maxWidth: 600,
+},
   seeAll: {
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 16,
+    marginBottom: 16,
   },
 });
