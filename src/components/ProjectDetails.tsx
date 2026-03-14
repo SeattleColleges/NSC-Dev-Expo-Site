@@ -1,31 +1,37 @@
 import { StyleSheet, View, Text, Image } from 'react-native';
 
-export default function ProjectDetails() {
+export default function ProjectDetails({
+    title = "The Goal",
+    body = "Is to offer essential support to students within the broader Seattle Colleges system, "+
+        "ensuring they have access to professional clothing for interviews, employment, and graduation ceremonies. "+
+        "Emphasizing its not-for-profit nature, these clothing items come without a financial burden to the student.",
+    imageSource = null,
+    imageCaption = "Captioning here*",
+    placeholderText = "Marketing image"
+
+}) {
     return (
         <View>
             <View style={styles.mainContainer}>
                 <View style={styles.topContainer}>
                     <Text style={styles.h1}>
-                        The Goal
+                        {title}
                     </Text>
                     <View style={styles.underLine}></View>
                     <Text style={styles.body}>
-                        Is to offer essential support to students within the broader Seattle Colleges system,
-                        ensuring they have access to professional clothing for interviews, employment, and graduation ceremonies.
-                        Emphasizing its not-for-profit nature, these clothing items come without a financial burden to the student.
+                        {body}
                     </Text>
                 </View>
                 <View style={styles.bottomContainer}>
                     <View style={styles.imageBox}>
-                        <Image>
-
-                        </Image>
-                        <Text style={styles.imageText}>
-                        Marketing image*
-                        </Text>
+                        {imageSource ? (
+                        <Image source={imageSource}/>
+                        ) : (
+                        <Text style={styles.imageText}> {placeholderText} </Text>
+                        )}
                     </View>
                     <Text style={styles.imageCaption}>
-                        Captioning here*
+                        {imageCaption}
                     </Text>
                 </View>
             </View>
@@ -34,6 +40,10 @@ export default function ProjectDetails() {
 }
 
 const styles = StyleSheet.create({
+    fullImage: {
+        width: "100%",
+        height: "100%",
+    },
     mainContainer: {
         backgroundColor: '#484848',
         flex: 1,
