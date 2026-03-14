@@ -1,5 +1,5 @@
 
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet } from "react-native";
 
@@ -38,6 +38,21 @@ import { StyleSheet } from "react-native";
                 </View>
 
             </View>
+
+            <View style={styles.applySection}>
+                <Text style={styles.applyText}>Want to apply{"\n"}as a student?</Text>
+
+                <TouchableOpacity style={styles.applyButton}>
+                    <Text style={styles.applyButtonText}>Apply Now</Text>
+
+
+                </TouchableOpacity>
+
+
+            </View>
+
+            
+
             
         </LinearGradient>
         
@@ -93,6 +108,32 @@ import { StyleSheet } from "react-native";
         maxWidth: 220, 
 
     },
+
+    applySection: {
+        marginTop: 80,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+      },
+      
+      applyText: {
+        fontSize: 30,
+        color: "#DBDBDB",
+        fontWeight: "600",
+      },
+      
+      applyButton: {
+        backgroundColor: "#000",
+        paddingVertical: 14,
+        paddingHorizontal: 28,
+        borderRadius: 4,
+      },
+      
+      applyButtonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "600",
+      },
 
 
 
