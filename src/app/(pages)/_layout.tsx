@@ -28,9 +28,9 @@ export default function AppLayout() {
             }}
           />
           <Stack.Screen
-            name="student"
+            name="students"
             options={{
-              title: 'Student',
+              title: 'Students',
             }}
           />
         </Stack>

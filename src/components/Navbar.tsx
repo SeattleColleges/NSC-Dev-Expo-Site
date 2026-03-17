@@ -2,6 +2,7 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useState, useEffect } from "react";
 import HamburgerButton from "./HamburgerButton";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { Link } from "expo-router";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -26,6 +27,7 @@ export default function Navbar() {
                 <View style={styles.logoBox}>
                     <Text style={styles.logo}>LOGO</Text>
                 </View>
+
                 <HamburgerButton 
                     onPress={() => setMenuOpen(!menuOpen)}
                 />
@@ -33,6 +35,7 @@ export default function Navbar() {
 
             {menuOpen && (
                 <View style={styles.dropdown}>
+
                     {/* ABOUT */}
                     <Pressable onPress={() => setAboutOpen(!aboutOpen)}>
                         <View style={styles.dropdownCategory}>
@@ -58,10 +61,10 @@ export default function Navbar() {
                     </Pressable>
 
                     {contactOpen && (
-                              <View style={styles.subMenu}>
-                                    <Text style={styles.row}>Become a Partner</Text>
-                                    <Text style={styles.row}>Request Student Info</Text>
-                                </View>
+                        <View style={styles.subMenu}>
+                            <Text style={styles.row}>Become a Partner</Text>
+                            <Text style={styles.row}>Request Student Info</Text>
+                        </View>
                     )}
 
                     {/* PEOPLE */}
@@ -73,11 +76,20 @@ export default function Navbar() {
                     </Pressable>
 
                     {peopleOpen && (
-                              <View style={styles.subMenu}>
-                                    <Text style={styles.row}>Faculty & Staff</Text>
+                        <View style={styles.subMenu}>
+
+                            <Text style={styles.row}>Faculty & Staff</Text>
+
+                            {/* CLICKABLE STUDENTS LINK */}
+                            <Link href="/students" asChild>
+                                <Pressable>
                                     <Text style={styles.row}>Students</Text>
-                                    <Text style={styles.row}>Alumni</Text>
-                                </View>
+                                </Pressable>
+                            </Link>
+
+                            <Text style={styles.row}>Alumni</Text>
+
+                        </View>
                     )}
 
                     {/* PROJECTS */}
@@ -89,17 +101,18 @@ export default function Navbar() {
                     </Pressable>
 
                     {projectsOpen && (
-                              <View style={styles.subMenu}>
-                                    <Text style={styles.row}>Current Projects</Text>
-                                    <Text style={styles.row}>Our Portfolio</Text>
-                                </View>
+                        <View style={styles.subMenu}>
+                            <Text style={styles.row}>Current Projects</Text>
+                            <Text style={styles.row}>Our Portfolio</Text>
+                        </View>
                     )}
 
-                    {/*DONATE-not hooked up*/}
+                    {/* DONATE */}
                     <View style={styles.dropdownCategory}>
                         <Text style={styles.dropdownText}>Donate</Text>
                         <MaterialIcons name={"keyboard-arrow-down"} size={56} color="black" />
                     </View>
+
                 </View>
             )}
         </>
@@ -137,10 +150,8 @@ const styles = StyleSheet.create({
         fontSize: 48,
         fontWeight: "500",
         color: "#DDD",
-        // fontFamily: 'Roboto'
     },
     dropdownCategory: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "flex-end",
         justifyContent: "flex-end",
@@ -157,6 +168,5 @@ const styles = StyleSheet.create({
         fontSize: 36,
         paddingRight: 20,
         paddingBottom: 5,
-        // fontFamily: 'Roboto'
     }
 });
