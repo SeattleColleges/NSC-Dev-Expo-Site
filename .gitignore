@@ -10,3 +10,4 @@ dist/
 web-build/
 *storybook.log
 storybook-static
+.DS_Store
