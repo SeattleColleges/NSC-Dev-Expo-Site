@@ -3,20 +3,29 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 type Props = {
   title: string;
   description: string;
+  value: string;
+  statDescription: string;
   linkText: string;
-  href: string;
 };
 
-export default function InfoTextCard({
+export default function InfoCardDesktop({
   title,
   description,
+  value,
+  statDescription,
   linkText,
 }: Props) {
   return (
     <View style={styles.card}>
+      {/* 상단 텍스트 */}
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
 
+      {/* 중간 숫자 */}
+      <Text style={styles.value}>{value}</Text>
+      <Text style={styles.statDescription}>{statDescription}</Text>
+
+      {/* 하단 링크 */}
       <TouchableOpacity>
         <Text style={styles.link}>{linkText} →</Text>
       </TouchableOpacity>
@@ -26,27 +35,39 @@ export default function InfoTextCard({
 
 const styles = StyleSheet.create({
   card: {
-    flexBasis: "50%",
+    flexBasis: "25%",
     backgroundColor: "#E5E5E5",
-    padding: 20,
+    padding: 30,
     alignItems: "center",
-    justifyContent: "center",
-    minHeight: 240
+    justifyContent: "space-between",
+    minHeight: 550,
   },
+
   title: {
-    fontSize: 25,
+    fontSize: 26,
     fontWeight: "600",
     textAlign: "center",
     marginBottom: 15,
   },
+
   description: {
-    marginVertical: 10,
     textAlign: "center",
-    marginBottom: 25,
+    marginBottom: 30,
   },
-  link: {
-    fontSize: 17,
+
+  value: {
+    fontSize: 48,
+    fontWeight: "600",
+    marginVertical: 10,
+  },
+
+  statDescription: {
     textAlign: "center",
+    marginBottom: 30,
+  },
+
+  link: {
+    fontSize: 18,
     fontWeight: "bold",
   },
 });

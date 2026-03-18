@@ -1,10 +1,46 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, useWindowDimensions } from "react-native";
 import InfoTextCard from "./InfoTextCard";
 import InfoStatCard from "./InfoStatCard";
+import InfoCardDesktop from "./InfoCardDesktop";
 
 export default function InformationalSection() {
-  return (
-    <View style={styles.container}>
+  const { width } = useWindowDimensions();
+  const isDesktop = width > 900;
+
+  return isDesktop ? (
+    // desktop
+    <View style={styles.desktopContainer}>
+      <InfoCardDesktop
+        title="The Process"
+        description={`Find out how the App Development program works for you.
+
+Grow your business or non-profit for free.`}
+        value="10+"
+        statDescription="Departments within our school to build your business"
+        linkText="See more details"
+      />
+
+      <InfoCardDesktop
+        title="Our Portfolio"
+        description="Check out all our previous projects and case studies."
+        value="6"
+        statDescription="Commercial projects under our belt"
+        linkText="See more details"
+      />
+
+      <InfoCardDesktop
+        title="Become a Student"
+        description={`Want to learn modern high demand skills?
+
+Come and check out our App Development program.`}
+        value="80%"
+        statDescription="of students find gainful employment"
+        linkText="See more details"
+      />
+    </View>
+  ) : (
+    // mobile
+    <View style={styles.mobileContainer}>
       <InfoTextCard
         title="The Process"
         description={`Find out how the App Development program works for you.
@@ -49,8 +85,19 @@ Come and check out our App Development program.`}
 }
 
 const styles = StyleSheet.create({
-  container: {
+  // mobile
+  mobileContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
+    width: "100%",
+  },
+
+  // desktop
+  desktopContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: "100%",
+    justifyContent: "center",
+    gap: 30,
   },
 });

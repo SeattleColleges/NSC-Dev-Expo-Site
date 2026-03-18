@@ -16,16 +16,15 @@ export default function InfoStatCard({ value, description }: Props) {
 
 const styles = StyleSheet.create({
   card: {
-    width: "50%",
+    flexBasis: "50%",
     backgroundColor: "#F2F2F2",
     padding: 20,
-    marginBottom: 20,
     alignItems: "center",
     justifyContent: "center",
   },
   value: {
     fontSize: 45,
-    fontWeight: "regular",
+    fontWeight: "400",
   },
   description: {
     textAlign: "center",
