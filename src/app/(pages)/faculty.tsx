@@ -2,72 +2,6 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Link } from 'expo-router';
 import FacultyCard from '../../components/FacultyCard';
 
-const facultyData = [
-  {
-    id: '1',
-    name: 'BC KO',
-    department: 'Department Head',
-    description: 'Department head of the Application development department',
-    phone: '206-555-5555',
-    email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placecats.com/200/200',
-    profileLink: 'https://seattlecolleges.edu',
-  },
-  {
-    id: '2',
-    name: 'BC KO',
-    department: 'Department Head',
-    description: 'Department head of the Application development department',
-    phone: '206-555-5555',
-    email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placecats.com/200/200',
-    profileLink: 'https://seattlecolleges.edu',
-  },
-  {
-    id: '3',
-    name: 'BC KO',
-    department: 'Department Head',
-    description: 'Department head of the Application development department',
-    phone: '206-555-5555',
-    email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placecats.com/200/200',
-    profileLink: 'https://seattlecolleges.edu',
-  },
-  {
-    id: '4',
-    name: 'BC KO',
-    department: 'Department Head',
-    description: 'Department head of the Application development department',
-    phone: '206-555-5555',
-    email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placecats.com/200/200',
-    profileLink: 'https://seattlecolleges.edu',
-  },
-];
-
-const staffData = [
-  {
-    id: '1',
-    name: 'BC KO',
-    department: 'Staff Member',
-    description: 'Staff member of the Application development department',
-    phone: '206-555-5555',
-    email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placecats.com/200/200',
-    profileLink: 'https://seattlecolleges.edu',
-  },
-  {
-    id: '2',
-    name: 'BC KO',
-    department: 'Staff Member',
-    description: 'Staff member of the Application development department',
-    phone: '206-555-5555',
-    email: 'email@seattlecolleges.org',
-    imageUrl: 'https://placecats.com/200/200',
-    profileLink: 'https://seattlecolleges.edu',
-  },
-];
-
 export default function FacultyPage() {
   return (
     <ScrollView>
@@ -136,13 +70,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 12,
   },
-gridWrapper: {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-  paddingHorizontal: 8,
-  maxWidth: 600,
-},
+  gridWrapper: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingHorizontal: 8,
+    maxWidth: 600,
+  },
   seeAll: {
     fontSize: 14,
     fontWeight: 'bold',
@@ -151,3 +85,69 @@ gridWrapper: {
     marginBottom: 16,
   },
 });
+
+const facultyData = [
+  {
+    id: '1',
+    name: 'BC KO',
+    department: 'Department Head',
+    description: 'Department head of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placecats.com/200/200',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+  {
+    id: '2',
+    name: 'BC KO',
+    department: 'Department Head',
+    description: 'Department head of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placecats.com/200/200',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+  {
+    id: '3',
+    name: 'BC KO',
+    department: 'Department Head',
+    description: 'Department head of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placecats.com/200/200',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+  {
+    id: '4',
+    name: 'BC KO',
+    department: 'Department Head',
+    description: 'Department head of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placecats.com/200/200',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+];
+
+const staffData = [
+  {
+    id: '1',
+    name: 'BC KO',
+    department: 'Staff Member',
+    description: 'Staff member of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placecats.com/200/200',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+  {
+    id: '2',
+    name: 'BC KO',
+    department: 'Staff Member',
+    description: 'Staff member of the Application development department',
+    phone: '206-555-5555',
+    email: 'email@seattlecolleges.org',
+    imageUrl: 'https://placecats.com/200/200',
+    profileLink: 'https://seattlecolleges.edu',
+  },
+];
