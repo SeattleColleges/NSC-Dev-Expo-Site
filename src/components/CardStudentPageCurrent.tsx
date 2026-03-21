@@ -1,4 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import GithubIcon from '../../assets/githubicon.png';
+import LinkedinIcon from '../../assets/linkedinicon.png';
 
 export function Card(){
     return(
@@ -12,6 +14,23 @@ export function Card(){
             <Text style={styles.descriptionText}>
                 I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs.
             </Text>
+            <View style={styles.footerContainer}>
+                <View style={styles.socialIcons}>
+                    <Image 
+                        source={GithubIcon} 
+                        style={styles.iconStyle} 
+                    />
+                    <Image 
+                        source={LinkedinIcon} 
+                        style={styles.iconStyle} 
+                        />
+                </View>
+                <View style={styles.linkGroup}>
+                    <Text style={styles.linkText}>Student page</Text>
+                    <Text style={styles.arrowIcon}>{'>'}</Text>
+                </View>
+
+            </View>
             </View>
         </View>
     )
@@ -23,9 +42,9 @@ const styles = StyleSheet.create({
         paddingLeft: 93,
         paddingBottom: 35,
         maxWidth: 600,
-        fontFamily: 'Inter'
-        
+        fontFamily: 'Inter'  
     },
+
     imageBox: {
       height: 216,
       width: 224,
@@ -61,6 +80,34 @@ const styles = StyleSheet.create({
         fontSize: 15,
         letterSpacing: 0,
         marginTop: 18 
+    }, 
+    iconStyle: {
+        width: 30,
+        height: 30,
+    },
+    footerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 38
+    },
+    socialIcons: {
+        flexDirection: 'row',
+        gap: 5.44,
+    },
+    linkGroup: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    linkText: {
+        fontSize: 16,
+        fontWeight: '500',
+        marginRight: 4,
+    },
+    arrowIcon: {
+        fontSize: 16,
+        fontWeight: 'bold',
     }
     
 })
