@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     textTitle: {
         fontWeight: 600, 
         fontSize: 40, 
-        letterSpacing: 0,
-        paddingTop: 12
+        letterSpacing: 0,        
     }
 })
