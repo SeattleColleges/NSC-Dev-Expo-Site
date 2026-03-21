@@ -12,12 +12,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row', 
         fontFamily: 'Inter',
         paddingLeft: 93, 
-        paddingBottom: 15 
+        paddingBottom: 15,
+        paddingTop: 12
     },
 
     textTitle: {
         fontWeight: 600, 
         fontSize: 40, 
-        letterSpacing: 0
+        letterSpacing: 0,
+        paddingTop: 12
     }
 })
