@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         paddingBottom: 35,
         maxWidth: 600,
         fontFamily: 'Inter'
+        
     },
     imageBox: {
       height: 216,
@@ -33,8 +34,6 @@ const styles = StyleSheet.create({
       alignItems: "center",
     },
 
-
-    
     detailsContainer: {
         flex: 1,                 
         justifyContent: 'flex-start', 

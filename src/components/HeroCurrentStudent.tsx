@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     }, 
     
     textHero:{
-        fontFamily:'roboto',
+        fontFamily:'Roboto',
         fontWeight: 700,
         fontSize: 40, 
         letterSpacing:0,
