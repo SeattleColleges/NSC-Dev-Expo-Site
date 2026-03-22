@@ -1,7 +1,8 @@
-import InformationalBanner from "../../components/InformationalBanner";
+import ProcessHandoffSection from "src/ProcessHandoffSection";
+
 
 export default function TestPage() {
 
-  return <InformationalBanner/> ;
+  return <ProcessHandoffSection/> ;
 
 }
