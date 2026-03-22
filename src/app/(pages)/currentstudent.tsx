@@ -6,10 +6,6 @@ export default function currentStudentPage(){
     return(
         <>
         <Hero/>
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
         <ScrollView> 
             <Title/>       
             <Card/>
