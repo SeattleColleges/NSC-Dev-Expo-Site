@@ -1,13 +1,15 @@
 
 import { View, Text , StyleSheet} from "react-native";
+import AboutContent from "../components/AboutContent";
 
 export default function AppDevPage() {
 
  return (
-
+  
   <View style ={styles.page}>
   <View style={styles.card}>
   <Text style={styles.title}>Application Development</Text>
+  
   <Text style={styles.subtitle}>Bachelor of Applied Science (BAS)</Text>
   
 
@@ -36,7 +38,8 @@ export default function AppDevPage() {
          </Text>
     
       </View>
-  </View>
+      <AboutContent />
+    </View>
 
   </View>
 
