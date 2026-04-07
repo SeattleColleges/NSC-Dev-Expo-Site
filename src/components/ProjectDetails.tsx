@@ -48,11 +48,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#484848',
         flex: 1,
         alignItems: 'center',
-        width: 700,
+        width: '30%'
     },
     topContainer: {
         margin: '5%',
-        width: 600,
+        width: '30%'
     },
     h1: {
         fontFamily: 'Roboto',
