@@ -14,7 +14,7 @@ export default function ProcessHandoffSection() {
 
             <View style={styles.columns}>
                 <View style={styles.column}>
-                    <Text style={styles.heading}>Final Step</Text>
+                    <Text style={styles.subtitle}>Final Step</Text>
                     <Text style={styles.text}>
                         The final step where we hand off all related documentation and production assets to be used for your product or service.
                         As for any additional questions and services we are happy to help with anything else related your project.
@@ -23,7 +23,7 @@ export default function ProcessHandoffSection() {
 
 
                 <View style={styles.column}>
-                    <Text style={styles.heading}>Afterwards</Text>
+                    <Text style={styles.subtitle}>Afterwards</Text>
                     <Text style={styles.text}>
                         If you would like to continue working with us after completion of the project.
 
@@ -83,24 +83,51 @@ export default function ProcessHandoffSection() {
 }
 
 const styles = StyleSheet.create({
+
+
+
     container: {
-        padding: 20,
         width: "100%",
+        paddingHorizontal: 20,
+        paddingTop: 20,
     
 
     },
 
     title: {
-        fontSize: 28,
-        fontWeight: "600",
-    },
+        fontSize: 22,
+        fontWeight: "700",
+        marginBottom: 16,
+      },
+      
+      subtitle: {
+        fontSize: 18,
+        fontWeight: "700", // 👈 bold
+        marginBottom: 6,
+      },
+      
+      body: {
+        fontSize: 14,
+        lineHeight: 20,
+        color: "#333",
+      },
 
+    
+
+
+    
     columns: {
         
         marginTop: 20,
-        justifyContent: "space-between",
-        gap: 40,
+       flexDirection: "row",
+        gap: 20,
        
+    },
+
+    row: {
+        flexDirection: "row",
+        gap: 16,
+
     },
 
     column: {
@@ -159,7 +186,7 @@ const styles = StyleSheet.create({
         width: 140,
         height: 180,
         justifyContent: "center",
-        alignItems: "center",
+       
         
     },
 
@@ -175,7 +202,7 @@ const styles = StyleSheet.create({
 
     deliverablesContainer: {
         marginTop: 20,
-        alignSelf: "flex-start",
+        width: "100%"
         
     },
 
@@ -190,28 +217,32 @@ const styles = StyleSheet.create({
 
     deliverHeaderText: {
         color: "#F2F2F2",
-        fontSize: 16,
+        fontSize: 12,
         fontWeight: "300",
     },
 
     deliverBoxLarge: {
-        width: "80%",
-        height: 45,
+        paddingVertical: 8, 
+        paddingHorizontal: 16,
         backgroundColor: "#383838",
         justifyContent: "center",
-        marginTop: 10,
+        marginTop: -2,
+        marginBottom: 0,
         paddingLeft: 15,
         marginLeft: 20,
+        alignSelf: 'flex-start', 
     },
 
     deliverBoxMedium: {
-        width: "75%",
-        height: 45,
+        
+        paddingVertical: 8, 
+        paddingHorizontal: 16,
         backgroundColor: "#333",
         justifyContent: "center",
-        paddingLeft: 15,
-        marginTop: 8,
+        marginTop: -2,
+        marginBottom: 0,
         marginLeft: 40,
+        alignSelf: 'flex-start', 
     },
 
     deliverBoxSmall: {
@@ -219,16 +250,18 @@ const styles = StyleSheet.create({
         height: 45,
         backgroundColor: "#333",
         justifyContent: "center",
-        paddingLeft: 15,
-        marginTop: 8,
+        marginTop: -2,
         marginLeft: 60,
-        marginBottom: 20,
+        marginBottom: 0,
+        paddingVertical: 8, 
+        paddingHorizontal: 16,
+        alignSelf: 'flex-start', 
     
     },
 
     deliverText: {
         color: "#FFF",
-        fontSize: 20,
+        fontSize: 12,
     },
 
     centerSection: {
