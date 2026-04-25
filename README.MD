@@ -14,11 +14,13 @@ Currently, we are using Stacks to generate dev page environment for developers t
 - Navigate to other pages in the `(pages)` directory by adding the name of the file after the root directory in the URL. Example: Student page will be `/student`, about will be `/about`, etc.
 Note: Review the video linked in the resource section to gain understanding how expo handles folder structure for routing. Always refer to [expo documentation](https://docs.expo.dev/) for in-depth knowledge in how Expo components work. 
 
+
 # Resources
 - [Review before implementing components or pages: Introduction to Expo Router Layout Files](https://youtu.be/Yh6Qlg2CYwQ?si=c5Zy0PBnwWYwzOtV)
 - [Figma Design](https://www.figma.com/design/nswMhBThzHDCqsR7F2HxbF/NSC-Dev-site-redesign-wireframes?node-id=73-1231&t=SbPUpY0Pq8fQwScA-1)
 - [React Native Component Library](https://reactnative.dev/docs/components-and-apis)
 - [CSS Reference](https://css-tricks.com/)
 - [Expo Router](https://docs.expo.dev/versions/latest/sdk/router/)
+- [Storybook Usage Guide](./STORYBOOK_GUIDE.md)
 
 This is a living document, so please feel free to add any useful tips or workflows

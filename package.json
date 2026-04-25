@@ -24,9 +24,11 @@
     "@storybook/react-native": "^10.2.3",
     "babel-loader": "^8.4.1",
     "expo": "~54.0.33",
+    "expo-font": "^55.0.4",
     "expo-linear-gradient": "~15.0.8",
     "expo-linking": "~8.0.11",
     "expo-router": "~6.0.23",
+    "expo-splash-screen": "^55.0.11",
     "expo-status-bar": "~3.0.9",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -40,20 +42,20 @@
     "storybook": "^10.2.17"
   },
   "devDependencies": {
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2",
-    "storybook": "^10.2.17",
-    "@storybook/react-native-web-vite": "^10.2.17",
     "@chromatic-com/storybook": "^5.0.1",
-    "@storybook/addon-vitest": "^10.2.17",
     "@storybook/addon-a11y": "^10.2.17",
     "@storybook/addon-docs": "^10.2.17",
-    "vite": "^7.3.1",
-    "vitest": "^4.0.18",
-    "playwright": "^1.58.2",
+    "@storybook/addon-onboarding": "^10.2.17",
+    "@storybook/addon-vitest": "^10.2.17",
+    "@storybook/react-native-web-vite": "^10.2.17",
+    "@types/react": "~19.1.0",
     "@vitest/browser-playwright": "^4.0.18",
     "@vitest/coverage-v8": "^4.0.18",
-    "@storybook/addon-onboarding": "^10.2.17"
+    "playwright": "^1.58.2",
+    "storybook": "^10.2.17",
+    "typescript": "~5.9.2",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
   },
   "private": true
 }
