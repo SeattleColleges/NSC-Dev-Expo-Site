@@ -175,6 +175,8 @@ const styles = StyleSheet.create({
   container: {
     padding: 24,
     width: '100%',
+    maxWidth: 1000, 
+    alignSelf: 'center',
   },
   stepTitle: {
     fontSize: 20, 
