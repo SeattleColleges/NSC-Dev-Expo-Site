@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import HeroCTAButton from "./HeroCTAButton";
+
 
 function handleJoinPress() {
     Alert.alert("Join Us", "Button pressed!");
