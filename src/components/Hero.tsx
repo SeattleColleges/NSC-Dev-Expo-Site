@@ -2,9 +2,10 @@ import { View, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import HeroCTAButton from "./HeroCTAButton";
 
-function showAlert(){
-    console.log("This is the 'Join Us' button");
-};
+function handleJoinPress() {
+    Alert.alert("Join Us", "Button pressed!");
+}
+
 
 export default function Hero() {
     return(
@@ -23,7 +24,7 @@ export default function Hero() {
             <HeroCTAButton 
                 accessibilityRole="button"
                 label="Join Us"
-                onPress={showAlert}
+                onPress={handleJoinPress}
                 style={styles.floatingButton} />
         </View>
     );
