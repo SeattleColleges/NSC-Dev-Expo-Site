@@ -1,22 +1,21 @@
-import { Pressable, Text, StyleSheet, GestureResponderEvent, PressableProps, StyleProp, ViewStyle } from 'react-native';
+import React from "react";
+import { Pressable, Text, StyleSheet } from "react-native";
 
-interface HeroCTAButtonProps extends PressableProps {
-    label: string;
-    style?: StyleProp<ViewStyle>;
-};
-
-export default function HeroCTAButton({ 
-        label,
-        style,
-        ...rest
-    }: HeroCTAButtonProps) {
+export default function HeroCTAButton({
+  label,
+  onPress,
+  disabled,
+  style,
+}) {
   return (
     <Pressable
-        {...rest}
-        style={({ pressed }) => [
-            styles.button,
-            pressed && styles.pressed,
-            style, //external style applied last
+      onPress={onPress}
+      disabled={disabled}
+      style={({ pressed }) => [
+        styles.button,
+        pressed && styles.pressed,
+        disabled && styles.disabled,
+        style,
       ]}
     >
       <Text style={styles.text}>{label}</Text>
