@@ -1,7 +1,5 @@
 
 
-
-
   export const facultyList = [
     {
       name: "Jeff",
@@ -12,7 +10,7 @@
         "North Seattle College (2023–2026)",
         "Central Seattle College (2023–2025)",
       ],
-      bio: "BC KO Department Head: AD BAS department with a mission to teach front and back end to web developers.",
+      bio: "Jeff Department Head: AD BAS department with a mission to teach front and back end to web developers.",
       github: "https://github.com/",
       linkedin: "https://linkedin.com/",
       image: "https://via.placeholder.com/150",
@@ -40,7 +38,7 @@
         "North Seattle College (2023–2026)",
         "Central Seattle College (2023–2025)",
       ],
-      bio: "BC KO Department Head: AD BAS department with a mission to teach front and back end to web developers.",
+      bio: "Isaac Department Head: AD BAS department with a mission to teach front and back end to web developers.",
       github: "https://github.com/maria",
       linkedin: "https://linkedin.com/in/maria",
       image: "https://via.placeholder.com/150",
