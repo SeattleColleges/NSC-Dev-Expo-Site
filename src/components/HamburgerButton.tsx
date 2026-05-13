@@ -1,14 +1,33 @@
-import { Pressable, StyleSheet, GestureResponderEvent } from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  GestureResponderEvent,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import { Feather } from "@expo/vector-icons";
 
 interface HamburgerButtonProps {
   onPress: (event: GestureResponderEvent) => void;
-};
+  size?: number;
+  accessibilityLabel?: string;
+  style?: StyleProp<ViewStyle>;
+}
 
-export default function HamburgerButton({ onPress }: HamburgerButtonProps) {
+export default function HamburgerButton({
+  onPress,
+  size = 62,
+  accessibilityLabel = "Open menu",
+  style,
+}: HamburgerButtonProps) {
   return (
-    <Pressable onPress={onPress} style={styles.button}>
-      <Feather name="menu" size={62} color="black" />
+    <Pressable
+      accessibilityLabel={accessibilityLabel}
+      accessibilityRole="button"
+      onPress={onPress}
+      style={[styles.button, style]}
+    >
+      <Feather name="menu" size={size} color="black" />
     </Pressable>
   );
 }
@@ -16,6 +35,6 @@ export default function HamburgerButton({ onPress }: HamburgerButtonProps) {
 const styles = StyleSheet.create({
   button: {
     paddingInline: 10,
-    justifyContent: 'center',
-  }
+    justifyContent: "center",
+  },
 });
