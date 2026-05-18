@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet } from "react-native";
 import HeaderWithStats from "../../components/HeaderWithStats";
 
 const contactStats = [
-  { value: '3', description: 'Departments to aid you business' },
+  { value: '3', description: 'Departments to aid your business' },
   { value: '6', description: 'commercial projects finished' },
   { value: '100%', description: 'Client Satisfaction' },
 ];
@@ -10,7 +10,11 @@ const contactStats = [
 export default function ContactPage() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <HeaderWithStats stats={contactStats} page="contact" />
+      <HeaderWithStats
+        stats={contactStats}
+        heading="Need help with your business?"
+        subheading="We will build your IT needs"
+      />
     </ScrollView>
   );
 }

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, useWindowDimensions } from 'react-native';
 
 export interface StatItem {
   value: string;
@@ -7,7 +7,8 @@ export interface StatItem {
 
 export interface HeaderWithStatsProps {
   stats: StatItem[];
-  page?: string;
+  heading: string;
+  subheading: string;
 }
 
 function renderStatValue(value: string) {
@@ -23,12 +24,20 @@ function renderStatValue(value: string) {
   return <Text style={styles.statValue}>{value}</Text>;
 }
 
-export default function HeaderWithStats({ stats, page }: HeaderWithStatsProps) {
+export default function HeaderWithStats({ stats, heading, subheading }: HeaderWithStatsProps) {
+  const { width } = useWindowDimensions();
+  const isNarrow = width < 600;
+
   return (
     <View style={styles.container}>
-      <View style={styles.card}>
+      <Text style={styles.heading}>{heading}</Text>
+      <Text style={styles.subheading}>{subheading}</Text>
+      <View style={[styles.card, isNarrow && styles.cardNarrow]}>
         {stats.map((stat) => (
-          <View style={styles.statBlock} key={`${stat.value}-${stat.description}`}>
+          <View
+            style={[styles.statBlock, isNarrow && styles.statBlockNarrow]}
+            key={`${stat.value}-${stat.description}`}
+          >
             {renderStatValue(stat.value)}
             <Text style={styles.statDescription}>{stat.description}</Text>
           </View>
@@ -42,38 +51,62 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 24,
+    backgroundColor: '#1A1A2E',
+  },
+  heading: {
+    fontSize: 24,
+    fontFamily: 'Inter',
+    fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  subheading: {
+    fontSize: 15,
+    fontFamily: 'Inter',
+    color: '#ccc',
+    textAlign: 'center',
+    marginBottom: 20,
   },
   card: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-around',
-    borderWidth: 2,
-    borderColor: '#E8354A',
     borderRadius: 8,
     paddingVertical: 24,
     paddingHorizontal: 12,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255,255,255,0.05)',
+  },
+  cardNarrow: {
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   statBlock: {
     alignItems: 'center',
     flex: 1,
     paddingHorizontal: 8,
+    marginBottom: 16,
+  },
+  statBlockNarrow: {
+    flex: 0,
+    width: '100%',
   },
   statValue: {
     fontSize: 40,
     fontFamily: 'Inter',
     fontWeight: 'bold',
-    color: '#1A1A1A',
+    color: '#fff',
   },
   specialChar: {
     fontSize: 28,
     fontFamily: 'Inter',
     fontWeight: 'bold',
-    color: '#1A1A1A',
+    color: '#fff',
   },
   statDescription: {
     fontSize: 13,
     fontFamily: 'Inter',
-    color: '#444',
+    color: '#ccc',
     textAlign: 'center',
     marginTop: 6,
   },
