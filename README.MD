@@ -24,3 +24,7 @@ Note: Review the video linked in the resource section to gain understanding how 
 - [Storybook Usage Guide](./STORYBOOK_GUIDE.md)
 
 This is a living document, so please feel free to add any useful tips or workflows
+
+## Development Update
+
+Worked on mobile contact header enhancement branch setup and repository contribution workflow.
