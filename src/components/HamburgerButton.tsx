@@ -34,7 +34,7 @@ export default function HamburgerButton({
 
 const styles = StyleSheet.create({
   button: {
-    paddingInline: 10,
+    paddingHorizontal: 10,
     justifyContent: "center",
   },
 });
