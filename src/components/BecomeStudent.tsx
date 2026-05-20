@@ -3,9 +3,9 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
   Pressable,
   GestureResponderEvent,
+  useWindowDimensions,
 } from "react-native";
 import BecomeStudentIcon from "../../assets/BecomeStudentIcon";
 
@@ -16,14 +16,24 @@ type BecomeStudentProps = {
 export default function BecomeStudent({
   onEnroll = () => console.log("Enroll Now pressed"),
 }: BecomeStudentProps) {
-  const screenWidth = Dimensions.get("window").width;
-  const panelWidth = Math.min(468, Math.max(screenWidth - 80, 280));
-  const headerWidth = Math.min(622, Math.max(screenWidth - 64, panelWidth + 64));
+  const { width: screenWidth } = useWindowDimensions();
+  const horizontalGutter = 20;
+  const availableWidth = Math.max(screenWidth - horizontalGutter * 2, 0);
+  const panelWidth = Math.min(468, availableWidth);
+  const headerWidth = Math.min(622, availableWidth, panelWidth + 64);
+  const isNarrow = screenWidth < 480;
 
   return (
     <View style={styles.wrapper}>
       <View style={[styles.headerBar, { width: headerWidth }]}>
-        <Text style={styles.headerTitle}>Become a Student</Text>
+        <Text
+          style={[
+            styles.headerTitle,
+            isNarrow && styles.headerTitleNarrow,
+          ]}
+        >
+          Become a Student
+        </Text>
       </View>
 
       <View style={[styles.card, { width: panelWidth }]}>
@@ -54,13 +64,15 @@ const styles = StyleSheet.create({
     elevation: 4,
     paddingTop: 0,
     paddingBottom: 6,
+    paddingHorizontal: 20,
     minHeight: 685,
   },
   headerBar: {
     position: "absolute",
     top: 30,
     backgroundColor: "#575757",
-    height: 94,
+    minHeight: 94,
+    paddingVertical: 16,
     alignItems: "center",
     justifyContent: "center",
     zIndex: 1,
@@ -72,6 +84,10 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     textAlign: "center",
     lineHeight: 58,
+  },
+  headerTitleNarrow: {
+    fontSize: 40,
+    lineHeight: 44,
   },
   card: {
     marginTop: 0,
@@ -110,7 +126,8 @@ const styles = StyleSheet.create({
   },
   enrollButton: {
     backgroundColor: "#404040",
-    width: 265,
+    width: "100%",
+    maxWidth: 265,
     height: 90,
     borderRadius: 0,
     shadowColor: "#000",
