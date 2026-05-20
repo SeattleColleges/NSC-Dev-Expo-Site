@@ -25,6 +25,12 @@ const meta = {
   ],
   tags: ['autodocs'],
   args: {
+    title: 'The Design Process',
+    iconName: 'design-services',
+    textSections: [
+      'Find out how the App Development program do for you.',
+      'Grow your business or non-profit for free.',
+    ],
     onPress: fn(),
   },
 } satisfies Meta<typeof InformationalComponent>;

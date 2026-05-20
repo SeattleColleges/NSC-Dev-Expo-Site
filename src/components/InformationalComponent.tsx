@@ -3,29 +3,30 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 type InformationalComponentProps = {
+  title: string;
+  iconName: React.ComponentProps<typeof MaterialIcons>['name'];
+  textSections: string[];
   onPress?: () => void;
 };
 
 export default function InformationalComponent({
+  title,
+  iconName,
+  textSections,
   onPress,
 }: InformationalComponentProps) {
   return (
     <View style={styles.sectionContainer}>
-      <Text style={styles.heading}>The Design Process</Text>
+      <Text style={styles.heading}>{title}</Text>
 
       <MaterialIcons
-        name="design-services"
+        name={iconName}
         size={54}
         color="#CDCDCD"
         style={styles.icon}
       />
 
-      <Text style={styles.bodyText}>
-        Find out how the App Development program do for you.
-        {'\n'}
-        {'\n'}
-        Grow your business or non-profit for free.
-      </Text>
+      <Text style={styles.bodyText}>{textSections.join('\n\n')}</Text>
 
       <Pressable
         accessibilityRole="button"
