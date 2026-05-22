@@ -1,5 +1,6 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useState, useEffect } from "react";
+import { router } from "expo-router";
 import HamburgerButton from "./HamburgerButton";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -20,13 +21,13 @@ export default function Navbar() {
         }
     }, [menuOpen]);
 
-    return(
+    return (
         <>
             <View style={styles.container}>
                 <View style={styles.logoBox}>
                     <Text style={styles.logo}>LOGO</Text>
                 </View>
-                <HamburgerButton 
+                <HamburgerButton
                     onPress={() => setMenuOpen(!menuOpen)}
                 />
             </View>
@@ -58,10 +59,10 @@ export default function Navbar() {
                     </Pressable>
 
                     {contactOpen && (
-                              <View style={styles.subMenu}>
-                                    <Text style={styles.row}>Become a Partner</Text>
-                                    <Text style={styles.row}>Request Student Info</Text>
-                                </View>
+                        <View style={styles.subMenu}>
+                            <Text style={styles.row}>Become a Partner</Text>
+                            <Text style={styles.row}>Request Student Info</Text>
+                        </View>
                     )}
 
                     {/* PEOPLE */}
@@ -73,11 +74,13 @@ export default function Navbar() {
                     </Pressable>
 
                     {peopleOpen && (
-                              <View style={styles.subMenu}>
-                                    <Text style={styles.row}>Faculty & Staff</Text>
-                                    <Text style={styles.row}>Students</Text>
-                                    <Text style={styles.row}>Alumni</Text>
-                                </View>
+                        <View style={styles.subMenu}>
+                            <Text style={styles.row}>Faculty & Staff</Text>
+                            <Pressable onPress={() => router.push("/student")}>
+                                <Text style={styles.row}>Students</Text>
+                            </Pressable>
+                            <Text style={styles.row}>Alumni</Text>
+                        </View>
                     )}
 
                     {/* PROJECTS */}
@@ -89,10 +92,10 @@ export default function Navbar() {
                     </Pressable>
 
                     {projectsOpen && (
-                              <View style={styles.subMenu}>
-                                    <Text style={styles.row}>Current Projects</Text>
-                                    <Text style={styles.row}>Our Portfolio</Text>
-                                </View>
+                        <View style={styles.subMenu}>
+                            <Text style={styles.row}>Current Projects</Text>
+                            <Text style={styles.row}>Our Portfolio</Text>
+                        </View>
                     )}
 
                     {/*DONATE-not hooked up*/}
@@ -123,7 +126,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     logo: {
-        color:"#fff",
+        color: "#fff",
         fontSize: 20,
         alignSelf: "center"
     },
