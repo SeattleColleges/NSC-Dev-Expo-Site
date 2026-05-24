@@ -12,6 +12,7 @@ type Story = StoryObj<typeof FacultyProfileCard>;
 
 export const Default: Story = {
   args: {
+    header: "Faculty Profile",
     name: "BC KO",
     role: "Department Head",
     email: "email@seattlecolleges.org",

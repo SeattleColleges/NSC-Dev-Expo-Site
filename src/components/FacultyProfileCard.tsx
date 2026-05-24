@@ -7,6 +7,7 @@ type Education = {
 };
 
 type FacultyProfileCardProps = {
+  header?: string;
   name: string;
   role: string;
   bio: string[];
@@ -18,6 +19,7 @@ type FacultyProfileCardProps = {
 };
 
 export default function FacultyProfileCard({
+  header,
   name,
   role,
   bio,
@@ -30,9 +32,11 @@ export default function FacultyProfileCard({
   return (
     <View style={styles.wrapper}>
       <View style={styles.card}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>forgot the header</Text>
-        </View>
+        {header && (
+          <View style={styles.header}>
+            <Text style={styles.headerText}>{header}</Text>
+          </View>
+        )}
 
         <View style={styles.body}>
           <View style={styles.leftColumn}>
@@ -57,10 +61,7 @@ export default function FacultyProfileCard({
               <Text style={styles.labelSpacing}>Education:</Text>
 
               {education.map((edu, index) => (
-                <View
-                  key={`${edu.school}-${index}`}
-                  style={styles.educationItem}
-                >
+                <View key={`${edu.school}-${index}`} style={styles.educationItem}>
                   <Text style={styles.school}>{edu.school}</Text>
                   <Text style={styles.years}>{edu.years}</Text>
                 </View>
@@ -92,52 +93,55 @@ const styles = StyleSheet.create({
   wrapper: {
     padding: 20,
     alignItems: "center",
+    width: "100%",
   },
 
   card: {
-    width: 500,
-    minHeight: 660,
+    width: "100%",
+    maxWidth: 500,
     backgroundColor: "#565656",
     overflow: "hidden",
   },
 
   header: {
-    height: 45,
+    minHeight: 45,
     backgroundColor: "#ffffff",
     justifyContent: "center",
-    paddingLeft: 55,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
   },
 
   headerText: {
-    color: "#ff3b3b",
+    color: "#565656",
     fontSize: 15,
     fontWeight: "600",
   },
 
   body: {
     flexDirection: "row",
-    paddingHorizontal: 22,
-    paddingTop: 28,
-    paddingBottom: 28,
+    flexWrap: "wrap",
+    padding: 22,
+    gap: 22,
   },
 
   leftColumn: {
-    width: 190,
+    flexBasis: 190,
+    flexGrow: 1,
   },
 
   imagePlaceholder: {
-    width: 190,
+    width: "100%",
     height: 175,
     backgroundColor: "#c9c9c9",
   },
 
   profileImage: {
-    width: 190,
+    width: "100%",
     height: 175,
   },
 
   socialRow: {
-    height: 58,
+    minHeight: 58,
     backgroundColor: "#dedede",
     flexDirection: "row",
     alignItems: "center",
@@ -148,7 +152,6 @@ const styles = StyleSheet.create({
   },
 
   infoBox: {
-    minHeight: 330,
     backgroundColor: "#dedede",
     paddingHorizontal: 14,
     paddingTop: 14,
@@ -200,9 +203,10 @@ const styles = StyleSheet.create({
   },
 
   rightColumn: {
-    flex: 1,
-    paddingLeft: 22,
+    flexBasis: 220,
+    flexGrow: 1,
     paddingTop: 4,
+    paddingBottom: 48,
   },
 
   name: {
@@ -236,8 +240,7 @@ const styles = StyleSheet.create({
     color: "#f2f2f2",
     fontSize: 13,
     fontWeight: "700",
-    position: "absolute",
-    bottom: 20,
-    right: 32,
+    alignSelf: "flex-end",
+    marginTop: 12,
   },
 });
