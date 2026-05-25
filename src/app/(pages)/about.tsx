@@ -1,9 +1,16 @@
-import { View, Text } from 'react-native';
+import { ScrollView, StyleSheet } from "react-native";
+import DesignProcessOutline from "../../components/DesignProcessOutline";
 
 export default function AboutPage() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to the about Page!</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <DesignProcessOutline />
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+});
