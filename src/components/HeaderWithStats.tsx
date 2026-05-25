@@ -1,4 +1,5 @@
 import { StyleSheet, View, Text, useWindowDimensions } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export interface StatItem {
   value: string;
@@ -29,7 +30,12 @@ export default function HeaderWithStats({ stats, heading, subheading }: HeaderWi
   const isNarrow = width < 600;
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      style={styles.container}
+      colors={['#1A1A1A', '#808080']}
+      start={{ x: 0, y: 0.5 }}
+      end={{ x: 1, y: 0.5 }}
+    >
       <Text style={styles.heading}>{heading}</Text>
       <Text style={styles.subheading}>{subheading}</Text>
       <View style={[styles.card, isNarrow && styles.cardNarrow]}>
@@ -43,7 +49,7 @@ export default function HeaderWithStats({ stats, heading, subheading }: HeaderWi
           </View>
         ))}
       </View>
-    </View>
+    </LinearGradient>
   );
 }
 
@@ -51,7 +57,6 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 24,
-    backgroundColor: '#1A1A2E',
   },
   heading: {
     fontSize: 24,
