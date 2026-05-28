@@ -16,8 +16,8 @@
       image: "https://via.placeholder.com/150",
     },
     {
-      name: "BC",
-      title: "Application Development Instructor",
+      name: "BC KO",
+      title: "Department Head",
       email: "bc@example.com",
       phone: "206-555-5555",
       education: [
