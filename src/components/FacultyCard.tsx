@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import {
   View,
@@ -8,12 +7,9 @@ import {
   Image,
   Pressable,
   Linking,
-  Dimensions,
+  useWindowDimensions, // Added hook replacement
 } from "react-native";
 import { FontAwesome6 } from "@expo/vector-icons";
-
-// Fetch screen width to handle clean percentage-based scaling on different iPhones
-const { width } = Dimensions.get("window");
 
 type Faculty = {
   name: string;
@@ -32,6 +28,12 @@ type Props = {
 };
 
 export default function FacultyCard({ faculty }: Props) {
+  // Call hook inside the component for dynamic width calculations
+  const { width } = useWindowDimensions();
+  
+  // Define breakpoint to check if screen is a mobile layout
+  const isSmallScreen = width < 600;
+
   function openLink(url?: string) {
     if (url) {
       Linking.openURL(url);
@@ -39,12 +41,19 @@ export default function FacultyCard({ faculty }: Props) {
   }
 
   return (
-    // THE MAIN CARD - Solid dark charcoal container that scales beautifully on iPhone 13/14
     <View style={styles.darkCardMain}>
-      <View style={styles.mainContainer}>
+      {/* 1. Main Container Layout Switch */}
+      <View style={[
+        styles.mainContainer,
+        isSmallScreen && { flexDirection: "column" } // Switches to column stack on small screens
+      ]}>
         
-        {/* LEFT SIDEBAR: Holds the 3 stacked white/light-grey asset cards */}
-        <View style={styles.leftSidebar}>
+        {/* LEFT SIDEBAR */}
+        {/* 2. Left Sidebar Responsive Width Switch */}
+        <View style={[
+          styles.leftSidebar,
+          isSmallScreen ? { width: "100%", marginRight: 0 } : { width: width * 0.38 }
+        ]}>
           
           {/* CARD 1: Profile Image Block */}
           <View style={styles.sidebarCard}>
@@ -67,17 +76,14 @@ export default function FacultyCard({ faculty }: Props) {
 
           {/* CARD 3: Contact & Education Information Block */}
           <View style={[styles.sidebarCard, styles.infoCardPadding]}>
-            {/* Contact Data Fields */}
             <Text style={styles.fieldLabel}>Email:</Text>
             <Text style={styles.sidebarText} numberOfLines={1} adjustsFontSizeToFit>{faculty.email}</Text>
             
             <Text style={styles.fieldLabel}>Phone:</Text>
             <Text style={styles.sidebarText}>{faculty.phone}</Text>
 
-            {/* Precise Line Divider inside info block */}
             <View style={styles.innerCardDivider} />
 
-            {/* Education Dynamic Array Fields */}
             <Text style={styles.fieldLabel}>Education:</Text>
             {faculty.education.map((edu, index) => {
               const hasYear = edu.includes("202");
@@ -98,21 +104,26 @@ export default function FacultyCard({ faculty }: Props) {
 
         </View>
 
-        {/* RIGHT COLUMN: Clean slate dark charcoal context container */}
-        <View style={styles.rightContent}>
+        {/* RIGHT COLUMN */}
+        <View style={[
+          styles.rightContent,
+          isSmallScreen && { paddingLeft: 0, marginTop: 16 } // Clean spacing adjustment for stacked columns
+        ]}>
           <View>
-            {/* Main Typography Header Group */}
-            <Text style={styles.nameText}>{faculty.name}</Text>
+            {/* 3. Responsive Name Scaling Block */}
+            <Text style={[
+              styles.nameText, 
+              isSmallScreen && { fontSize: 18 } // Shrinks font to 18 on small devices to prevent bio crushing
+            ]}>
+              {faculty.name}
+            </Text>
             <Text style={styles.titleText}>{faculty.title}</Text>
             
-            {/* Short horizontal rule accent graphic underneath title */}
             <View style={styles.accentDividerDark} />
 
-            {/* Bio Block Body Copy Paragraphs */}
             <Text style={styles.bioText}>{faculty.bio}</Text>
           </View>
 
-          {/* Faculty Navigation Anchor Link */}
           <Pressable onPress={() => openLink(faculty.linkedin)} style={styles.profileLinkWrapper}>
             <Text style={styles.profileLinkText}>Faculty Profile  »</Text>
           </Pressable>
@@ -124,14 +135,12 @@ export default function FacultyCard({ faculty }: Props) {
 }
 
 const styles = StyleSheet.create({
-  // Main background card configured specifically for mobile viewport sizing
   darkCardMain: {
-    backgroundColor: "#595959", // Solid charcoal dark background block
+    backgroundColor: "#595959",
     borderRadius: 8,
     padding: 12,
     marginHorizontal: 12,
     marginVertical: 8,
-    // Soft shadow for mobile layout depth
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -140,18 +149,15 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flexDirection: "row",
-    alignItems: "stretch", // Keeps left and right heights strictly paired
+    alignItems: "stretch",
   },
-
-  // Left Section Grid Setup (Perfectly proportioned for iPhone widths)
   leftSidebar: {
-    width: width * 0.38, // Scales exactly to match device aspect boundaries
     marginRight: 12,
     justifyContent: "flex-start",
-    gap: 8, // Fixed clean spacing between the 3 stacked light cards
+    gap: 8,
   },
   sidebarCard: {
-    backgroundColor: "#EEEEEE", // White/light gray surface card blocks
+    backgroundColor: "#EEEEEE",
     borderRadius: 4,
     overflow: "hidden",
   },
@@ -160,12 +166,12 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around", // Balances the two icons perfectly on mobile screens
+    justifyContent: "space-around",
     paddingVertical: 8,
   },
   profileImage: {
     width: "100%",
-    height: 125, // Tweaked for ideal mobile layout footprint ratio
+    height: 125,
     backgroundColor: "#C4C4C4",
     resizeMode: "cover",
   },
@@ -174,7 +180,7 @@ const styles = StyleSheet.create({
   },
   infoCardPadding: {
     padding: 8,
-    flex: 1, // Let info container stretch naturally based on right side content flow
+    flexGrow: 1, 
   },
   fieldLabel: {
     fontSize: 9,
@@ -194,7 +200,7 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   eduRow: {
-    flexDirection: "column", // Stacked gracefully for narrow mobile viewports
+    flexDirection: "column",
     marginBottom: 4,
   },
   eduYearText: {
@@ -202,17 +208,15 @@ const styles = StyleSheet.create({
     color: "#666666",
     marginTop: 1,
   },
-
-  // Right Side Long-Form Column
   rightContent: {
     flex: 1,
     paddingLeft: 4,
     paddingTop: 4,
-    justifyContent: "space-between", // Pushes profile link cleanly to the base
+    justifyContent: "space-between",
   },
   nameText: {
     color: "#FFFFFF",
-    fontSize: 22, // Adjusted for clear text visibility on mobile devices
+    fontSize: 22,
     fontWeight: "700",
     letterSpacing: 0.2,
   },
@@ -226,7 +230,7 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: "#888888",
     marginVertical: 10,
-    width: "45%", // Partial decorative rule line matching mockup
+    width: "45%",
   },
   bioText: {
     color: "#DDDDDD",
@@ -235,7 +239,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
   },
   profileLinkWrapper: {
-    alignSelf: "flex-end", // Aligns nicely to the bottom right of the layout
+    alignSelf: "flex-end",
     marginTop: 16,
     marginBottom: 2,
   },
@@ -246,3 +250,4 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 });
+
