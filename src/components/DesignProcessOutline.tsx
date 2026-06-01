@@ -1,139 +1,100 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 type Step = {
   number: number;
   title: string;
-  description: string;
 };
 
 const defaultSteps: Step[] = [
-  {
-    number: 1,
-    title: "Discover",
-    description:
-      "We start by understanding the problem space — gathering requirements, talking to stakeholders, and researching user needs.",
-  },
-  {
-    number: 2,
-    title: "Design",
-    description:
-      "Using Figma, we create wireframes and prototypes that map out the user experience before writing a single line of code.",
-  },
-  {
-    number: 3,
-    title: "Develop",
-    description:
-      "Our team builds the application using modern tools like React Native, TypeScript, and Expo — following best practices and code review.",
-  },
-  {
-    number: 4,
-    title: "Test",
-    description:
-      "We validate functionality through unit tests, integration tests, and real-device testing to ensure quality and reliability.",
-  },
-  {
-    number: 5,
-    title: "Deploy",
-    description:
-      "The finished product is shipped to production, documented, and handed off — ready for real users in the real world.",
-  },
+  { number: 1, title: "Conducting Research" },
+  { number: 2, title: "Information Architecture" },
+  { number: 3, title: "Conceptual Design" },
+  { number: 4, title: "Visual Design & Prototyping" },
+  { number: 5, title: "Usability Testing" },
+  { number: 6, title: "Hand Off & Implementation" },
 ];
 
 type Props = {
   steps?: Step[];
   pageName?: string;
+  onCtaPress?: () => void;
 };
 
 export default function DesignProcessOutline({
   steps = defaultSteps,
-  pageName = "about",
+  pageName,
+  onCtaPress,
 }: Props) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Our Design Process</Text>
-      <Text style={styles.subtitle}>
-        How we take ideas from concept to working software.
-      </Text>
+    <View style={styles.wrapper}>
+      {pageName ? (
+        <Text style={styles.pageLabel}>{pageName}</Text>
+      ) : null}
 
-      {steps.map((step, index) => (
-        <View key={step.number} style={styles.stepRow}>
-          <View style={styles.leftCol}>
-            <View style={styles.numberCircle}>
-              <Text style={styles.numberText}>{step.number}</Text>
-            </View>
-            {index < steps.length - 1 && <View style={styles.connector} />}
-          </View>
-          <View style={styles.stepContent}>
-            <Text style={styles.stepTitle}>{step.title}</Text>
-            <Text style={styles.stepDescription}>{step.description}</Text>
-          </View>
+      <View style={styles.card}>
+        <Text style={styles.heading}>Our Design Process</Text>
+
+        {steps.map((step) => (
+          <Text key={step.number} style={styles.stepItem}>
+            {step.number}. {step.title}
+          </Text>
+        ))}
+
+        <View style={styles.ctaRow}>
+          <TouchableOpacity style={styles.ctaButton} onPress={onCtaPress}>
+            <Text style={styles.ctaText}>See more details »</Text>
+          </TouchableOpacity>
         </View>
-      ))}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
+    width: "100%",
     paddingHorizontal: 20,
-    paddingVertical: 30,
-    backgroundColor: "white",
-    width: 390,
-    alignSelf: "center",
+    paddingVertical: 24,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
+  pageLabel: {
+    fontSize: 12,
+    fontWeight: "600",
+    textTransform: "uppercase",
+    letterSpacing: 1,
+    color: "#888",
     marginBottom: 8,
   },
-  subtitle: {
-    fontSize: 14,
-    color: "#555",
-    lineHeight: 20,
-    marginBottom: 28,
+  card: {
+    backgroundColor: "#2e2e2e",
+    borderRadius: 8,
+    paddingHorizontal: 24,
+    paddingVertical: 28,
   },
-  stepRow: {
-    flexDirection: "row",
-    marginBottom: 0,
-  },
-  leftCol: {
-    alignItems: "center",
-    width: 40,
-  },
-  numberCircle: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: "#1a1a2e",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  numberText: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-  connector: {
-    width: 2,
-    flex: 1,
-    minHeight: 24,
-    backgroundColor: "#ccc",
-    marginVertical: 4,
-  },
-  stepContent: {
-    flex: 1,
-    paddingLeft: 16,
-    paddingBottom: 24,
-  },
-  stepTitle: {
+  heading: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 4,
-    marginTop: 6,
+    color: "#ffffff",
+    marginBottom: 20,
   },
-  stepDescription: {
-    fontSize: 14,
-    lineHeight: 21,
-    color: "#333",
+  stepItem: {
+    fontSize: 15,
+    color: "#ffffff",
+    marginBottom: 14,
+    lineHeight: 22,
+  },
+  ctaRow: {
+    marginTop: 12,
+    alignItems: "center",
+  },
+  ctaButton: {    borderWidth: 1,
+    borderColor: "#ffffff",
+    borderRadius: 6,
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+  },
+  ctaText: {
+    color: "#ffffff",
+    fontSize: 13,
+    fontWeight: "500",
   },
 });
