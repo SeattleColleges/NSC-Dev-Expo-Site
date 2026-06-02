@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "start": "expo start",
-    "start:web": "npx expo start --web",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "storybook-generate": "sb-rn-get-stories",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -42,20 +37,15 @@
     "storybook": "^10.2.17"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.0.1",
-    "@storybook/addon-a11y": "^10.2.17",
-    "@storybook/addon-docs": "^10.2.17",
-    "@storybook/addon-onboarding": "^10.2.17",
-    "@storybook/addon-vitest": "^10.2.17",
-    "@storybook/react-native-web-vite": "^10.2.17",
+    "@chromatic-com/storybook": "^5.2.1",
+    "@storybook/addon-a11y": "^10.4.1",
+    "@storybook/addon-docs": "^10.4.1",
+    "@storybook/addon-vitest": "^10.4.1",
+    "@storybook/react-native-web-vite": "^10.4.1",
     "@types/react": "~19.1.0",
-    "@vitest/browser-playwright": "^4.0.18",
-    "@vitest/coverage-v8": "^4.0.18",
-    "playwright": "^1.58.2",
-    "storybook": "^10.2.17",
+    "storybook": "^10.4.1",
     "typescript": "~5.9.2",
-    "vite": "^7.3.1",
-    "vitest": "^4.0.18"
+    "vite": "^8.0.16"
   },
   "private": true
 }
