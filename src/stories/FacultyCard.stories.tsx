@@ -3,7 +3,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { View, StyleSheet } from "react-native";
 // Fixed import path: goes out of 'stories' and into 'components'
-import FacultyCard from "../components/FacultyCard";
+import FacultyCardProps from "../components/FacultyCardProps";
 
 const facultyList = [
   {
@@ -50,9 +50,9 @@ const facultyList = [
   },
 ];
 
-const meta: Meta<typeof FacultyCard> = {
-  title: "Components/FacultyCard",
-  component: FacultyCard,
+const meta: Meta<typeof FacultyCardProps> = {
+  title: "Components/FacultyCardProps",
+  component: FacultyCardProps,
   decorators: [
     (Story) => (
       <View style={styles.container}>
@@ -63,7 +63,7 @@ const meta: Meta<typeof FacultyCard> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof FacultyCard>;
+type Story = StoryObj<typeof FacultyCardProps>;
 
 export const InstructorJeff: Story = {
   args: {

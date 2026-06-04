@@ -26,8 +26,8 @@ type Faculty = {
 type Props = {
   faculty: Faculty;
 };
-
-export default function FacultyCard({ faculty }: Props) {
+// rename to FacultyCardProps
+export default function FacultyCardProps({ faculty }: Props) {
   // Call hook inside the component for dynamic width calculations
   const { width } = useWindowDimensions();
   
