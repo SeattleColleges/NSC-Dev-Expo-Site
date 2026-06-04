@@ -23,15 +23,13 @@ type Faculty = {
   image: string;
 };
 
-type Props = {
+type FacultyCardProps = {
   faculty: Faculty;
 };
-// rename to FacultyCardProps
-export default function FacultyCardProps({ faculty }: Props) {
-  // Call hook inside the component for dynamic width calculations
+
+export default function FacultyCard({ faculty }: FacultyCardProps) {
   const { width } = useWindowDimensions();
-  
-  // Define breakpoint to check if screen is a mobile layout
+
   const isSmallScreen = width < 600;
 
   function openLink(url?: string) {

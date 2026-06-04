@@ -1,12 +1,26 @@
+
 import React from "react";
-import { Pressable, Text, StyleSheet } from "react-native";
+import {
+  Pressable,
+  Text,
+  StyleSheet,
+  ViewStyle,
+  StyleProp,
+} from "react-native";
+
+type HeroCTAButtonProps = {
+  label: string;
+  onPress: () => void;
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
+};
 
 export default function HeroCTAButton({
   label,
   onPress,
-  disabled,
+  disabled = false,
   style,
-}) {
+}: HeroCTAButtonProps) {
   return (
     <Pressable
       onPress={onPress}
@@ -25,19 +39,20 @@ export default function HeroCTAButton({
 
 const styles = StyleSheet.create({
   button: {
-    // margin: 24,
-    backgroundColor: '#323232',
+    backgroundColor: "#323232",
     padding: 8,
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   pressed: {
     opacity: 0.8,
+  },
+  disabled: {
+    opacity: 0.4,
   },
   text: {
     color: "#DEDEDE",
     fontSize: 16,
     paddingLeft: 16,
-    paddingRight: 20
-    // fontFamily: "Inter"
+    paddingRight: 20,
   },
 });
