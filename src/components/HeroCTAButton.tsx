@@ -1,22 +1,35 @@
-import { Pressable, Text, StyleSheet, GestureResponderEvent, PressableProps, StyleProp, ViewStyle } from 'react-native';
 
-interface HeroCTAButtonProps extends PressableProps {
-    label: string;
-    style?: StyleProp<ViewStyle>;
+import React from "react";
+import {
+  Pressable,
+  Text,
+  StyleSheet,
+  ViewStyle,
+  StyleProp,
+} from "react-native";
+
+type HeroCTAButtonProps = {
+  label: string;
+  onPress: () => void;
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
 };
 
-export default function HeroCTAButton({ 
-        label,
-        style,
-        ...rest
-    }: HeroCTAButtonProps) {
+export default function HeroCTAButton({
+  label,
+  onPress,
+  disabled = false,
+  style,
+}: HeroCTAButtonProps) {
   return (
     <Pressable
-        {...rest}
-        style={({ pressed }) => [
-            styles.button,
-            pressed && styles.pressed,
-            style, //external style applied last
+      onPress={onPress}
+      disabled={disabled}
+      style={({ pressed }) => [
+        styles.button,
+        pressed && styles.pressed,
+        disabled && styles.disabled,
+        style,
       ]}
     >
       <Text style={styles.text}>{label}</Text>
@@ -26,19 +39,20 @@ export default function HeroCTAButton({
 
 const styles = StyleSheet.create({
   button: {
-    // margin: 24,
-    backgroundColor: '#323232',
+    backgroundColor: "#323232",
     padding: 8,
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   pressed: {
     opacity: 0.8,
+  },
+  disabled: {
+    opacity: 0.4,
   },
   text: {
     color: "#DEDEDE",
     fontSize: 16,
     paddingLeft: 16,
-    paddingRight: 20
-    // fontFamily: "Inter"
+    paddingRight: 20,
   },
 });
