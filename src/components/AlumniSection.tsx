@@ -1,127 +1,44 @@
 import React from "react";
-import { AntDesign } from "@expo/vector-icons"
-import {View, Text, StyleSheet, Pressable} from "react-native";
-import Footer from  "./Footer";
+import { View, Text, StyleSheet } from "react-native";
+import AlumniCard from "./AlumniCard";
 
 export default function AlumniSection() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>See Other Students</Text>
+        <Text style={styles.seeAll}>See All {">"}</Text>
+      </View>
 
-return (
+      <View style={styles.cardsContainer}>
+        {/* <View style={styles.card}>  */}
+        <AlumniCard
+          name="Ed Bio"
+          role="Design Lead"
+          description="I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs ..."
+        />
 
-    
-    
-    <View style={styles.container}> 
-   <View style={styles.header}>
+        <AlumniCard
+          name="Ed Bio"
+          role="Design Lead"
+          description="I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs ..."
+        />
 
-    <Text style={styles.title}>Alumni</Text>
-    <Text style={styles.seeAll}> See All {'>'}</Text>
+        <AlumniCard
+          name="Ed Bio"
+          role="Design Lead"
+          description="I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs ..."
+        />
+
+        <AlumniCard
+          name="Ed Bio"
+          role="Design Lead"
+          description="I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs …"
+        />
+      </View>
     </View>
-   
-    <View style={styles.cardsContainer}>
-    <View style={styles.card}>
-    <View style={styles.imagePlaceholder}/>
-    <View style={styles.nameSection}>
-        <Text style={styles.studentName}>Ed Bio</Text>
-        <Text style={styles.studentRole}>Design Lead</Text>
-
-    </View>
-    <Text style={styles.description}>I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs....</Text>
-    
-    <View style={styles.socialRow}>
-    <AntDesign name = "github" size={30}></AntDesign>
-    <AntDesign name = "linkedin" size={32}></AntDesign>
-
-
-   </View>
-   <Pressable style={styles.button}> 
-    <Text style={styles.buttonText}>Student Page {">>"}</Text>
-    </Pressable>
-    </View>
-
-
- 
-
-   
-   <View style={styles.card}>
-    <View style={styles.imagePlaceholder}/>
-    <View style={styles.nameSection}>
-        <Text style={styles.studentName}>Ed Bio</Text>
-        <Text style={styles.studentRole}>Design Lead</Text>
-
-    </View>
-    <Text style={styles.description}>I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs....</Text>
-   
-    <View style={styles.socialRow}>
-    <AntDesign name = "github" size={30}></AntDesign>
-    <AntDesign name = "linkedin" size={32}></AntDesign>
-
-
-   </View>
-   <Pressable style={styles.button}> 
-    <Text style={styles.buttonText}>Student Page {">>"}</Text>
-    </Pressable>
-    </View>
-
-
-
-
-
-
-   <View style={styles.card}>
-    <View style={styles.imagePlaceholder}/>
-    <View style={styles.nameSection}>
-        <Text style={styles.studentName}>Ed Bio</Text>
-        <Text style={styles.studentRole}>Design Lead</Text>
-
-    </View>
-    <Text style={styles.description}>I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs....</Text>
-    
-    
-    <View style={styles.socialRow}>
-    <AntDesign name = "github" size={30}></AntDesign>
-    <AntDesign name = "linkedin" size={32}></AntDesign>
-
-
-   </View>
-   <Pressable style={styles.button}> 
-    <Text style={styles.buttonText}>Student Page {">>"}</Text>
-    </Pressable>
-     </View>
-
-
-  
-
-   
-   <View style={styles.card}>
-    <View style={styles.imagePlaceholder}/>
-    <View style={styles.nameSection}>
-        <Text style={styles.studentName}>Ed Bio</Text>
-        <Text style={styles.studentRole}>Design Lead</Text>
-
-    </View>
-    
-    <Text style={styles.description}>I am the design for several projects. I do stuff for the school and to aid local businesses and non-profit organizations with their needs....</Text>
-     
-    <View style={styles.socialRow}>
-    <AntDesign name = "github" size={30}></AntDesign>
-    <AntDesign name = "linkedin" size={32} color="#777777"></AntDesign>
-    
-
-   </View>
-   <Pressable style={styles.button}> 
-    <Text style={styles.buttonText}>Student Page {">>"}</Text>
-    </Pressable>
-     
-     </View>
-
-     </View>
-   
-    </View>
-
-    
-
-  
-);
-
+    // </View>
+  );
 }
 
 
@@ -145,6 +62,7 @@ const styles = StyleSheet.create ({
 
     title: {
         fontSize: 24,
+      
         fontWeight: "bold",
 
     },
@@ -156,7 +74,7 @@ const styles = StyleSheet.create ({
     },
 
     card: {
-        width: "48%",
+        width: 180,
         marginTop: 20,
 
     },
@@ -165,6 +83,7 @@ const styles = StyleSheet.create ({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
+
       },
 
     imagePlaceholder: {
@@ -188,7 +107,7 @@ const styles = StyleSheet.create ({
     studentName: {
         color: "#E5E5E5",
         fontSize: 18,
-        // fontWeight: "bold",
+      
       },
       
       studentRole: {
@@ -208,7 +127,7 @@ const styles = StyleSheet.create ({
 
       socialRow: {
         flexDirection: "row",
-        justifyContent: "space-evenly",
+        justifyContent: "center",
         marginTop: 15,
         width: 150,
         
@@ -221,6 +140,7 @@ const styles = StyleSheet.create ({
       alignItems: "center",
       width: 120,
       alignSelf: "center",
+      paddingHorizontal: 15,
       },
 
       buttonText: {

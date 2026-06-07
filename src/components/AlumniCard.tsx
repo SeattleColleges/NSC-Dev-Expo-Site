@@ -67,8 +67,9 @@ description,
 const styles = StyleSheet.create ({
 
     card: {
-        width: 150,
+        width: "50%",
         marginTop: 20,
+        alignItems: "center",
 
     },
 
@@ -113,6 +114,7 @@ const styles = StyleSheet.create ({
        
 
     },
+    
    
 
     socialRow: {
