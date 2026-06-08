@@ -1,5 +1,4 @@
-import { View, Text } from "react-native";
-import { ScrollView, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 import DesignProcessOutline from "../../components/DesignProcessOutline";
 
 export default function AboutPage() {
