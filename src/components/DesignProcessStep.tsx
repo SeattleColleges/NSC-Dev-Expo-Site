@@ -7,13 +7,17 @@ import {
   useWindowDimensions,
 } from "react-native";
 
+export interface Deliverable {
+  label: string;
+  description: string;
+}
+
 export interface DesignProcessStepProps {
   stepNumber: number;
   title: string;
   description: string;
-  deliverables: string[];
+  deliverables: Deliverable[];
   imageUri?: string;
-  accentColor?: string;
 }
 
 export default function DesignProcessStep({
@@ -22,35 +26,44 @@ export default function DesignProcessStep({
   description,
   deliverables,
   imageUri,
-  accentColor = "#4A90D9",
 }: DesignProcessStepProps) {
   const { width } = useWindowDimensions();
   const isSmallScreen = width < 600;
 
   return (
     <View style={styles.card}>
+      {/* Dark header bar */}
       <View style={styles.header}>
-        <View style={[styles.stepBadge, { backgroundColor: accentColor }]}>
-          <Text style={styles.stepNumber}>{stepNumber}.</Text>
-        </View>
         <Text style={[styles.title, isSmallScreen && { fontSize: 16 }]}>
-          {title}
+          {stepNumber}. {title}
         </Text>
       </View>
 
-      <Text style={styles.description}>{description}</Text>
+      {/* Body */}
+      <View style={styles.body}>
+        <Text style={styles.description}>{description}</Text>
 
-      {imageUri ? (
-        <Image source={{ uri: imageUri }} style={styles.image} />
-      ) : (
-        <View style={styles.imagePlaceholder} />
-      )}
+        {/* Image or placeholder */}
+        {imageUri ? (
+          <Image source={{ uri: imageUri }} style={styles.image} />
+        ) : (
+          <View style={styles.imagePlaceholder}>
+            <Text style={styles.imagePlaceholderText}>image here*</Text>
+          </View>
+        )}
 
-      <View style={styles.deliverablesContainer}>
-        <Text style={styles.deliverablesLabel}>Deliverables</Text>
+        {/* Deliverables section */}
+        <Text style={styles.deliverablesHeading}>
+          {title} Deliverables
+        </Text>
         {deliverables.map((item, index) => (
-          <View key={index} style={[styles.deliverableTag, { backgroundColor: accentColor }]}>
-            <Text style={styles.deliverableText}>{item}</Text>
+          <View key={index} style={styles.deliverableItem}>
+            <View style={styles.deliverableTag}>
+              <Text style={styles.deliverableLabel}>{item.label}</Text>
+            </View>
+            <Text style={styles.deliverableDescription}>
+              {item.description}
+            </Text>
           </View>
         ))}
       </View>
@@ -62,9 +75,9 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 8,
-    padding: 16,
     marginHorizontal: 12,
     marginVertical: 8,
+    overflow: "hidden",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.15,
@@ -72,68 +85,70 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 8,
-  },
-  stepBadge: {
-    borderRadius: 4,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginRight: 8,
-  },
-  stepNumber: {
-    color: "#FFFFFF",
-    fontWeight: "700",
-    fontSize: 12,
+    backgroundColor: "#2e2e2e",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
   },
   title: {
     fontSize: 18,
     fontWeight: "700",
-    color: "#1A1A1A",
-    flexShrink: 1,
+    color: "#FFFFFF",
+  },
+  body: {
+    padding: 16,
   },
   description: {
     fontSize: 13,
     color: "#444444",
-    lineHeight: 18,
+    lineHeight: 20,
     marginBottom: 12,
   },
   image: {
     width: "100%",
-    height: 140,
+    aspectRatio: 16 / 9,
     borderRadius: 4,
     resizeMode: "cover",
-    marginBottom: 12,
+    marginBottom: 16,
     backgroundColor: "#C4C4C4",
   },
   imagePlaceholder: {
     width: "100%",
-    height: 140,
+    aspectRatio: 16 / 9,
     borderRadius: 4,
     backgroundColor: "#C4C4C4",
+    marginBottom: 16,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  imagePlaceholderText: {
+    color: "#888888",
+    fontSize: 12,
+  },
+  deliverablesHeading: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#1A1A1A",
+    marginBottom: 10,
+  },
+  deliverableItem: {
     marginBottom: 12,
   },
-  deliverablesContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 6,
-    alignItems: "center",
-  },
-  deliverablesLabel: {
-    fontSize: 11,
-    fontWeight: "600",
-    color: "#555555",
-    marginRight: 4,
-  },
   deliverableTag: {
+    backgroundColor: "#2e2e2e",
     borderRadius: 4,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    alignSelf: "flex-start",
+    marginBottom: 6,
   },
-  deliverableText: {
+  deliverableLabel: {
     color: "#FFFFFF",
-    fontSize: 11,
-    fontWeight: "500",
+    fontSize: 12,
+    fontWeight: "600",
+  },
+  deliverableDescription: {
+    fontSize: 12,
+    color: "#444444",
+    lineHeight: 18,
   },
 });
