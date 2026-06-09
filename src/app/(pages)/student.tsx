@@ -1,6 +1,6 @@
 import { ScrollView, View, Text, StyleSheet, Pressable, Linking } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import studentData from "../../../seattlecolleges.github.io/src/students.json";
+import studentData from "../../../students.json";
 
 interface Student {
   name: string;
