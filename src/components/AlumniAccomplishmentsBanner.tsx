@@ -1,17 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import AlumniCard, { AlumniRecord } from './AlumniCard';
-
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
-const isMobile = screenWidth < 768;
 
 interface BannerProps {
   alumniList: AlumniRecord[];
 }
 
-const AlumniAccomplishmentsBanner: React.FC<BannerProps> = ({ alumniList }) => {
+// Refactored to a standard function component
+function AlumniAccomplishmentsBanner({ alumniList }: BannerProps) {
+  const { width, height } = useWindowDimensions();
+  const isMobile = width < 768;
+  const styles = getStyles(isMobile, height);
+
   return (
     <LinearGradient
       colors={['#1A1A1A', '#808080']} 
@@ -32,9 +33,9 @@ const AlumniAccomplishmentsBanner: React.FC<BannerProps> = ({ alumniList }) => {
       </View>
     </LinearGradient>
   );
-};
+}
 
-const styles = StyleSheet.create({
+const getStyles = (isMobile: boolean, screenHeight: number) => StyleSheet.create({
   bannerContainer: {
     flex: 1,
     minHeight: screenHeight,
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#E0E0E0',
+    fontFamily: 'Roboto',
     fontSize: isMobile ? 28 : 36, 
     fontWeight: '600',
     marginBottom: 48,

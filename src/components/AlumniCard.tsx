@@ -1,8 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
-
-const screenWidth = Dimensions.get('window').width;
-const isMobile = screenWidth < 768;
+import { View, Text, StyleSheet, Image, useWindowDimensions } from 'react-native';
 
 export interface AlumniRecord {
   id: string;
@@ -16,10 +13,20 @@ interface AlumniCardProps {
   alumni: AlumniRecord;
 }
 
-const AlumniCard: React.FC<AlumniCardProps> = ({ alumni }) => {
+// Refactored to a standard function component
+function AlumniCard({ alumni }: AlumniCardProps) {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 768;
+  const styles = getStyles(isMobile);
+
   return (
     <View style={styles.cardContainer}>
-      <View style={styles.imagePlaceholder} />
+      {alumni.imageUrl ? (
+        <Image source={{ uri: alumni.imageUrl }} style={styles.imageBox} />
+      ) : (
+        <View style={styles.imageBox} />
+      )}
+      
       <View style={styles.textContainer}>
         <View style={styles.headerBox}>
           <Text style={styles.nameText}>{alumni.name}</Text>
@@ -29,49 +36,50 @@ const AlumniCard: React.FC<AlumniCardProps> = ({ alumni }) => {
       </View>
     </View>
   );
-};
+}
 
-const styles = StyleSheet.create({
+const getStyles = (isMobile: boolean) => StyleSheet.create({
   cardContainer: {
     backgroundColor: '#555555',
-    padding: 24, 
-    paddingLeft: 12, // Overrides left padding to slide the image to the left
-    paddingBottom: 36, // Overrides the bottom padding to be larger
+    paddingTop: 24,
+    paddingRight: isMobile ? 16 : 24,
+    paddingLeft: 16, 
+    paddingBottom: isMobile ? 28 : 36,
     flexDirection: 'row',
-    alignItems: 'stretch',
+    alignItems: 'flex-start', 
     width: '100%',
   },
-  imagePlaceholder: {
-    width: 130,
+  imageBox: {
+    width: isMobile ? 100 : 140,  
+    height: isMobile ? 115 : 160, 
     backgroundColor: '#D9D9D9',
-    marginRight: 16,
+    marginRight: isMobile ? 12 : 16, 
   },
   textContainer: {
     flex: 1,
   },
   headerBox: {
     backgroundColor: '#111111',
-    padding: 8,
-    marginBottom: 10,
+    padding: 10,
+    marginBottom: 12,
   },
   nameText: {
     color: '#FFFFFF',
     fontFamily: 'Inter',
-    fontSize: 11, 
+    fontSize: 16, 
     fontWeight: '400', 
     marginBottom: 2,
   },
   titleText: {
     color: '#FFFFFF',
     fontFamily: 'Inter',
-    fontSize: 11,
-    fontWeight: '400',
+    fontSize: 14, 
   },
   quoteText: {
     color: '#E0E0E0',
     fontFamily: 'Inter',
-    fontSize: 10,
-    lineHeight: 13,
+    fontSize: isMobile ? 13 : 14, 
+    lineHeight: isMobile ? 18 : 20,
   },
 });
 
