@@ -23,24 +23,26 @@ const styles = StyleSheet.create({
   cardContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 16,
-    width: 160,
+    paddingVertical: 24,
+    paddingHorizontal: 16,
+    width: '100%',
   },
   iconWrapper: {
-    marginBottom: 8,
+    marginBottom: 4,
     alignItems: 'center',
     justifyContent: 'center',
   },
   titleText: {
-    color: '#FFFFFF',
-    fontSize: 16,
+    color: '#D9D9D9',
+    fontSize: 32,
     textAlign: 'center',
     fontWeight: '400',
+    lineHeight: 38,
   },
   labelText: {
-    color: '#A0A0A0',       // Muted gray to match the secondary look in Figma
-    fontSize: 12,           // Smaller font size for sub-labels
-    marginBottom: 6,        // Space between the label and the icon below it
+    color: '#D9D9D9',       // Muted gray to match the secondary look in Figma
+    fontSize: 14,           // Smaller font size for sub-labels
     textAlign: 'center',
+    fontWeight: '400',
   },
 });

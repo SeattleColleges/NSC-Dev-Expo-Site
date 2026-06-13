@@ -31,11 +31,12 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: 400, // Keeps the grid compact like the Figma screenshot
+    maxWidth: 800, // Keeps the grid compact like the Figma screenshot
+    lineHeight: 38, 
   },
   gridItem: {
     width: '50%', // Splitting into a 2-column layout
     alignItems: 'center',
-    marginVertical: 12,
+    marginVertical: 24,
   },
 });

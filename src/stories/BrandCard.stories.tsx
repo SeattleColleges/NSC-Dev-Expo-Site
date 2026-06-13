@@ -55,6 +55,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A1A1A', // Matching the dark theme from your Figma image
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 24,
+    padding: 8,
   },
 });
