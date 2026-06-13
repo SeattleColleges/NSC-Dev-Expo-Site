@@ -10,10 +10,16 @@ import {
 import BecomeStudentIcon from "../../assets/BecomeStudentIcon";
 
 type BecomeStudentProps = {
+  title?: string;
+  description?: string;
+  ctaLabel?: string;
   onEnroll?: (e?: GestureResponderEvent) => void;
 };
 
 export default function BecomeStudent({
+  title = "Become a Student",
+  description = "Want to learn modern high\ndemand skills?\nCome and check out our\nApp Development program.",
+  ctaLabel = "Enroll Now",
   onEnroll = () => console.log("Enroll Now pressed"),
 }: BecomeStudentProps) {
   const { width: screenWidth } = useWindowDimensions();
@@ -22,6 +28,10 @@ export default function BecomeStudent({
   const panelWidth = Math.min(468, availableWidth);
   const headerWidth = Math.min(622, availableWidth, panelWidth + 64);
   const isNarrow = screenWidth < 480;
+  const descriptionLines = description.split("\n");
+  const midpoint = Math.ceil(descriptionLines.length / 2);
+  const primaryDescription = descriptionLines.slice(0, midpoint).join("\n");
+  const secondaryDescription = descriptionLines.slice(midpoint).join("\n");
 
   return (
     <View style={styles.wrapper}>
@@ -32,19 +42,19 @@ export default function BecomeStudent({
             isNarrow && styles.headerTitleNarrow,
           ]}
         >
-          Become a Student
+          {title}
         </Text>
       </View>
 
       <View style={[styles.card, { width: panelWidth }]}>
         <BecomeStudentIcon />
 
-        <Text style={styles.bodyText}>Want to learn modern high{"\n"}demand skills?</Text>
+        <Text style={styles.bodyText}>{primaryDescription}</Text>
 
-        <Text style={styles.bodyTextSecondary}>Come and check out our{"\n"}App Development program.</Text>
+        <Text style={styles.bodyTextSecondary}>{secondaryDescription}</Text>
 
         <Pressable style={styles.enrollButton} onPress={onEnroll}>
-          <Text style={styles.enrollText}>Enroll Now</Text>
+          <Text style={styles.enrollText}>{ctaLabel}</Text>
         </Pressable>
       </View>
     </View>

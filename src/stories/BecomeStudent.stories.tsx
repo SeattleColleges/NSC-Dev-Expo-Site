@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "storybook/test";
 import BecomeStudent from "../components/BecomeStudent";
 
 const meta = {
@@ -9,6 +10,7 @@ const meta = {
     description:
       "Start your journey at North Seattle College—learn practical skills and build real projects with industry partners.",
     ctaLabel: "Learn how",
+    onEnroll: fn(),
   },
 } satisfies Meta<typeof BecomeStudent>;
 
