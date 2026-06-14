@@ -55,3 +55,21 @@ export const Normal: Story = {
         </View>
     ),
 };
+
+export const ExpoDevSiteStats: Story = {
+    args: {
+        value: '150+',
+        description: 'Students Impacted',
+        isLightMode: true, // Simply pass true here!
+    },
+    render: (args) => (
+        <View style={{ flex: 1, backgroundColor: '#ffffff', paddingVertical: 40, width: '100%', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 16 }}>
+                <StatBlock 
+                    {...args} // Spreads all args, including our flag
+                    style={{ width: 220, height: 140 }} 
+                />
+            </View>
+        </View>
+    ),
+};

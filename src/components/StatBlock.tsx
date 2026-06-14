@@ -5,35 +5,47 @@ export interface StatBlockProps {
     value: string;
     description: string;
     style?: ViewStyle;
+    isLightMode?: boolean; // Added optional flag
 }
 
-function renderStatValue(value: string) {
-    const lastChar = value[value.length - 1];
+export default function StatBlock({ value, description, style, isLightMode = false }: StatBlockProps) {
     
-    if (lastChar === '%' || lastChar === '+') {
-        return (
-            <Text style={styles.statValue}>
-                {value.slice(0, -1)}
-                <Text style={styles.specialCharacter}>{lastChar}</Text>
-            </Text>
-        );
+    // 1. Dynamic Text Styling Helper
+    function renderStatValue(value: string) {
+        const lastChar = value[value.length - 1];
+        
+        // Define text color dynamically based on theme mode
+        const textColorStyle = { color: isLightMode ? '#000000' : '#FFFFFF' };
+        
+        if (lastChar === '%' || lastChar === '+') {
+            return (
+                <Text style={[styles.statValue, textColorStyle]}>
+                    {value.slice(0, -1)}
+                    <Text style={[styles.specialCharacter, textColorStyle]}>{lastChar}</Text>
+                </Text>
+            );
+        }
+        
+        return <Text style={[styles.statValue, textColorStyle]}>{value}</Text>;
     }
-    
-    return <Text style={styles.statValue}>{value}</Text>;
-}
 
-export default function StatBlock({ value, description, style }: StatBlockProps) {
+    // Define context-driven background styles
+    const containerThemeStyle: ViewStyle = isLightMode 
+        ? { backgroundColor: '#E5E7EB', shadowOpacity: 0, elevation: 0 } // Light gray & flat from Figma
+        : { backgroundColor: '#4A4A4A' }; // Original dark gray
+
+    const descriptionColorStyle = { color: isLightMode ? '#374151' : '#d0d0d0' };
+
     return (
-        <View style={[styles.cardContainer, style]}>
+        <View style={[styles.cardContainer, containerThemeStyle, style]}>
             {renderStatValue(value)}
-            <Text style={styles.descriptionText}>{description}</Text>
+            <Text style={[styles.descriptionText, descriptionColorStyle]}>{description}</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     cardContainer: {
-        backgroundColor: '#4A4A4A',
         paddingTop: 20,
         paddingHorizontal: 24,
         marginVertical: 20, 
@@ -48,17 +60,14 @@ const styles = StyleSheet.create({
     statValue: {
         fontSize: 64,
         fontWeight: 'bold',
-        color: '#FFFFFF',
         textAlign: 'center',
         fontFamily: 'Inter',
     },
     specialCharacter: {
         fontSize: 48,
-        color: '#FFFFFF',
     },
     descriptionText: {
         fontSize: 16,
-        color: '#d0d0d0',
         textAlign: 'center',
         marginTop: -1, 
         lineHeight: 22, 
