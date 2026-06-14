@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: 800, // Keeps the grid compact like the Figma screenshot
+    maxWidth: 800,
     lineHeight: 38, 
   },
   gridItem: {
