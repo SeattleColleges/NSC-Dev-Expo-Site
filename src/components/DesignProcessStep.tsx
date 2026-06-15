@@ -3,8 +3,8 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   useWindowDimensions,
+  ViewStyle,
 } from "react-native";
 
 export interface Deliverable {
@@ -15,23 +15,29 @@ export interface Deliverable {
 export interface DesignProcessStepProps {
   stepNumber: number;
   title: string;
+  sectionTitle?: string;
+  sectionDescription?: string;
+  bodyTitle?: string;
   description: string;
   deliverables: Deliverable[];
-  imageUri?: string;
+  style?: ViewStyle;
 }
 
 export default function DesignProcessStep({
   stepNumber,
   title,
+  sectionTitle,
+  sectionDescription,
+  bodyTitle,
   description,
   deliverables,
-  imageUri,
+  style,
 }: DesignProcessStepProps) {
   const { width } = useWindowDimensions();
   const isSmallScreen = width < 600;
 
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, style]}>
       {/* Dark header bar */}
       <View style={styles.header}>
         <Text style={[styles.title, isSmallScreen && { fontSize: 16 }]}>
@@ -39,25 +45,34 @@ export default function DesignProcessStep({
         </Text>
       </View>
 
+      {/* Grey sub-section box */}
+      {(sectionTitle || sectionDescription) && (
+        <View style={styles.sectionBox}>
+          {sectionTitle && (
+            <Text style={styles.sectionTitle}>{sectionTitle}</Text>
+          )}
+          {sectionDescription && (
+            <Text style={styles.sectionDescription}>{sectionDescription}</Text>
+          )}
+        </View>
+      )}
+
       {/* Body */}
       <View style={styles.body}>
+        {bodyTitle && (
+          <Text style={styles.bodyTitle}>{bodyTitle}</Text>
+        )}
         <Text style={styles.description}>{description}</Text>
 
-        {/* Image or placeholder */}
-        {imageUri ? (
-          <Image source={{ uri: imageUri }} style={styles.image} />
-        ) : (
-          <View style={styles.imagePlaceholder}>
-            <Text style={styles.imagePlaceholderText}>image here*</Text>
-          </View>
-        )}
+        {/* Deliverables heading banner */}
+        <View style={styles.deliverablesHeadingBanner}>
+          <Text style={styles.deliverablesHeading}>
+            {title} Deliverables
+          </Text>
+        </View>
 
-        {/* Deliverables section */}
-        <Text style={styles.deliverablesHeading}>
-          {title} Deliverables
-        </Text>
         {deliverables.map((item, index) => (
-          <View key={index} style={styles.deliverableItem}>
+          <View key={`${item.label}-${index}`} style={styles.deliverableItem}>
             <View style={styles.deliverableTag}>
               <Text style={styles.deliverableLabel}>{item.label}</Text>
             </View>
@@ -85,7 +100,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   header: {
-    backgroundColor: "#2e2e2e",
+    backgroundColor: "#3A3A3A",
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
@@ -94,8 +109,30 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#FFFFFF",
   },
+  sectionBox: {
+    backgroundColor: "#4A4A4A",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  sectionTitle: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#FFFFFF",
+    marginBottom: 6,
+  },
+  sectionDescription: {
+    fontSize: 12,
+    color: "#CCCCCC",
+    lineHeight: 18,
+  },
   body: {
     padding: 16,
+  },
+  bodyTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#1A1A1A",
+    marginBottom: 8,
   },
   description: {
     fontSize: 13,
@@ -103,46 +140,33 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 12,
   },
-  image: {
-    width: "100%",
-    aspectRatio: 16 / 9,
+  deliverablesHeadingBanner: {
+    backgroundColor: "#E8E8E8",
     borderRadius: 4,
-    resizeMode: "cover",
-    marginBottom: 16,
-    backgroundColor: "#C4C4C4",
-  },
-  imagePlaceholder: {
-    width: "100%",
-    aspectRatio: 16 / 9,
-    borderRadius: 4,
-    backgroundColor: "#C4C4C4",
-    marginBottom: 16,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  imagePlaceholderText: {
-    color: "#888888",
-    fontSize: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginBottom: 12,
   },
   deliverablesHeading: {
     fontSize: 15,
     fontWeight: "700",
     color: "#1A1A1A",
-    marginBottom: 10,
   },
   deliverableItem: {
     marginBottom: 12,
   },
   deliverableTag: {
-    backgroundColor: "#2e2e2e",
+    backgroundColor: "#E8E8E8",
     borderRadius: 4,
+    borderWidth: 1,
+    borderColor: "#CCCCCC",
     paddingHorizontal: 10,
     paddingVertical: 5,
     alignSelf: "flex-start",
     marginBottom: 6,
   },
   deliverableLabel: {
-    color: "#FFFFFF",
+    color: "#1A1A1A",
     fontSize: 12,
     fontWeight: "600",
   },
