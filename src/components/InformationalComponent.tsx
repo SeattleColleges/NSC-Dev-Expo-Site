@@ -46,8 +46,9 @@ export default function InformationalComponent({
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    width: 708,
-    height: 473,
+    width: '100%',
+    maxWidth: 708,
+    minHeight: 473,
     backgroundColor: '#717171',
     borderWidth: 1,
     borderColor: '#F2F2F2',
@@ -63,8 +64,10 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   heading: {
-    width: 296,
-    height: 38,
+    width: '100%',
+    maxWidth: 296,
+    minHeight: 38,
+    paddingVertical: 2,
     color: '#FAFAFA',
     fontFamily: 'Roboto',
     fontSize: 32,
@@ -77,8 +80,9 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   bodyText: {
-    width: 265,
-    height: 162,
+    width: '100%',
+    maxWidth: 265,
+    minHeight: 162,
     color: '#FAFAFA',
     fontFamily: 'Inter',
     fontSize: 20,
@@ -88,12 +92,14 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
   },
   button: {
-    width: 245,
-    height: 35,
+    width: '100%',
+    maxWidth: 245,
+    minHeight: 35,
     backgroundColor: 'transparent',
     borderWidth: 1,
     borderColor: '#F2F2F2',
     paddingHorizontal: 12,
+    paddingVertical: 4,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
