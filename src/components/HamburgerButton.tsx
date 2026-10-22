@@ -3,12 +3,19 @@ import { Feather } from "@expo/vector-icons";
 
 interface HamburgerButtonProps {
   onPress: (event: GestureResponderEvent) => void;
+  expanded: boolean;
 };
 
-export default function HamburgerButton({ onPress }: HamburgerButtonProps) {
+export default function HamburgerButton({ onPress, expanded }: HamburgerButtonProps) {
   return (
-    <Pressable onPress={onPress} style={styles.button}>
-      <Feather name="menu" size={62} color="black" />
+    <Pressable
+      onPress={onPress}
+      style={styles.button}
+      role="button"
+      aria-label="Navigation menu"
+      aria-expanded={expanded}
+    >
+      <Feather name="menu" size={62} color="black" aria-hidden />
     </Pressable>
   );
 }
