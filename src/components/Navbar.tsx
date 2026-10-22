@@ -28,6 +28,7 @@ export default function Navbar() {
                 </View>
                 <HamburgerButton 
                     onPress={() => setMenuOpen(!menuOpen)}
+                    expanded={menuOpen}
                 />
             </View>
 
