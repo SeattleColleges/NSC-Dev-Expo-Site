@@ -53,7 +53,7 @@ export default function BecomeStudent({
 
         <Text style={styles.bodyTextSecondary}>{secondaryDescription}</Text>
 
-        <Pressable style={styles.enrollButton} onPress={onEnroll}>
+        <Pressable accessibilityRole="button" style={styles.enrollButton} onPress={onEnroll}>
           <Text style={styles.enrollText}>{ctaLabel}</Text>
         </Pressable>
       </View>
