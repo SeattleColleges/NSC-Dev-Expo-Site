@@ -8,10 +8,6 @@ const meta = {
   title: "Components/BecomeStudent",
   component: BecomeStudent,
   args: {
-    title: "Become a student",
-    description:
-      "Start your journey at North Seattle College—learn practical skills and build real projects with industry partners.",
-    ctaLabel: "Learn how",
     onEnroll,
   },
 } satisfies Meta<typeof BecomeStudent>;
@@ -23,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const enrollButton = canvas.getByRole("button", { name: "Learn how" });
+    const enrollButton = canvas.getByRole("button", { name: "Enroll Now" });
 
     onEnroll.mockClear();
 
