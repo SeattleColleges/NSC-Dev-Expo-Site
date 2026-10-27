@@ -31,6 +31,7 @@ const meta = {
       'Find out how the App Development program do for you.',
       'Grow your business or non-profit for free.',
     ],
+    buttonLabel: 'See more details',
     onPress: fn(),
   },
 } satisfies Meta<typeof InformationalComponent>;

@@ -7,6 +7,7 @@ type InformationalComponentProps = {
   iconName: React.ComponentProps<typeof MaterialIcons>['name'];
   textSections: string[];
   onPress?: () => void;
+  buttonLabel?: string;
 };
 
 export default function InformationalComponent({
@@ -14,6 +15,7 @@ export default function InformationalComponent({
   iconName,
   textSections,
   onPress,
+  buttonLabel = 'See more details',
 }: InformationalComponentProps) {
   return (
     <View style={styles.sectionContainer}>
@@ -33,7 +35,7 @@ export default function InformationalComponent({
         onPress={onPress}
         style={({ pressed }) => [styles.button, pressed && styles.buttonPressed]}
       >
-        <Text style={styles.buttonLabel}>See more details</Text>
+        <Text style={styles.buttonLabel}>{buttonLabel}</Text>
         <MaterialIcons
           name="keyboard-double-arrow-right"
           size={22}
