@@ -28,7 +28,14 @@ export default function InformationalComponent({
         style={styles.icon}
       />
 
-      <Text style={styles.bodyText}>{textSections.join('\n\n')}</Text>
+      {textSections.map((section, index) => (
+        <Text
+          key={`${index}-${section}`}
+          style={[styles.bodyText, index > 0 && styles.bodyTextSpacing]}
+        >
+          {section}
+        </Text>
+      ))}
 
       <Pressable
         accessibilityRole="button"
@@ -84,7 +91,6 @@ const styles = StyleSheet.create({
   bodyText: {
     width: '100%',
     maxWidth: 265,
-    minHeight: 162,
     color: '#FAFAFA',
     fontFamily: 'Inter',
     fontSize: 20,
@@ -93,7 +99,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
   },
+  bodyTextSpacing: {
+    marginTop: 4,
+  },
   button: {
+    marginTop: 42,
     width: '100%',
     maxWidth: 245,
     minHeight: 35,
