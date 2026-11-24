@@ -46,10 +46,16 @@ Message: ${message}`
           <Text style={styles.required}>Required*</Text>
 
           <Text style={styles.label}>Name*</Text>
-          <TextInput style={styles.input} value={name} onChangeText={setName} />
+          <TextInput
+            accessibilityLabel="Name (required)"
+            style={styles.input}
+            value={name}
+            onChangeText={setName}
+          />
 
           <Text style={styles.label}>Email*</Text>
           <TextInput
+            accessibilityLabel="Email (required)"
             style={styles.input}
             value={email}
             onChangeText={setEmail}
@@ -58,6 +64,7 @@ Message: ${message}`
 
           <Text style={styles.label}>Business Name (Optional)</Text>
           <TextInput
+            accessibilityLabel="Business Name (optional)"
             style={styles.input}
             value={businessName}
             onChangeText={setBusinessName}
@@ -65,6 +72,7 @@ Message: ${message}`
 
           <Text style={styles.label}>Your message*</Text>
           <TextInput
+            accessibilityLabel="Your message (required)"
             style={styles.messageInput}
             value={message}
             onChangeText={setMessage}
@@ -72,7 +80,7 @@ Message: ${message}`
             textAlignVertical="top"
           />
 
-          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+          <TouchableOpacity accessibilityRole="button" style={styles.button} onPress={handleSubmit}>
             <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
         </View>
