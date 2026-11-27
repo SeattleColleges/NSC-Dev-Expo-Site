@@ -1,9 +1,11 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useState, useEffect } from "react";
+import { useRouter } from "expo-router";
 import HamburgerButton from "./HamburgerButton";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function Navbar() {
+    const router = useRouter();
     const [menuOpen, setMenuOpen] = useState(false);
 
     const [aboutOpen, setAboutOpen] = useState(false);
@@ -90,7 +92,9 @@ export default function Navbar() {
 
                     {projectsOpen && (
                               <View style={styles.subMenu}>
-                                    <Text style={styles.row}>Current Projects</Text>
+                                    <Pressable onPress={() => { setMenuOpen(false); router.push("/(pages)/current-projects"); }}>
+                                        <Text style={styles.row}>Current Projects</Text>
+                                    </Pressable>
                                     <Text style={styles.row}>Our Portfolio</Text>
                                 </View>
                     )}

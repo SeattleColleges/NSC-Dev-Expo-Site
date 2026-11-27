@@ -19,9 +19,6 @@
     "@react-native-async-storage/async-storage": "^3.0.1",
     "@react-native-community/datetimepicker": "^8.6.0",
     "@react-native-community/slider": "^5.1.2",
-    "@storybook/addon-ondevice-actions": "^10.2.3",
-    "@storybook/addon-ondevice-controls": "^10.2.3",
-    "@storybook/react-native": "^10.2.3",
     "babel-loader": "^8.4.1",
     "expo": "~54.0.33",
     "expo-font": "^55.0.4",
@@ -38,24 +35,14 @@
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",
     "react-native-svg": "^15.15.3",
-    "react-native-web": "^0.21.0",
-    "storybook": "^10.2.17"
+    "react-native-web": "^0.21.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.0.1",
-    "@storybook/addon-a11y": "^10.2.17",
-    "@storybook/addon-docs": "^10.2.17",
-    "@storybook/addon-onboarding": "^10.2.17",
-    "@storybook/addon-vitest": "^10.2.17",
-    "@storybook/react-native-web-vite": "^10.2.17",
     "@types/react": "~19.1.0",
-    "@vitest/browser-playwright": "^4.0.18",
-    "@vitest/coverage-v8": "^4.0.18",
-    "playwright": "^1.58.2",
-    "storybook": "^10.2.17",
-    "typescript": "~5.9.2",
-    "vite": "^7.3.1",
-    "vitest": "^4.0.18"
+    "typescript": "~5.9.2"
+  },
+  "overrides": {
+    "shell-quote": "1.8.4"
   },
   "private": true
 }

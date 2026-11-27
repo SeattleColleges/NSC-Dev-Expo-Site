@@ -33,6 +33,12 @@ export default function AppLayout() {
               title: 'Student',
             }}
           />
+          <Stack.Screen
+            name="current-projects"
+            options={{
+              title: 'Current Projects',
+            }}
+          />
         </Stack>
       </View>
     </View>
